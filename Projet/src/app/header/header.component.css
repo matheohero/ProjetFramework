@@ -1,0 +1,18 @@
+
+/* ==========================================
+   HEADER - En-tête du site
+========================================== */
+header {
+    background-color: #7ad30e; /* Bleu foncé légèrement différent du body */
+    padding: 15px 20px;
+    display: flex; /* Flexbox pour aligner logo et navigation */
+    justify-content: space-between; /* Espace entre logo et menu */
+    align-items: center; /* Centre verticalement les éléments */
+}
+
+/* Titre principal du header (logo) */
+header h1 {
+    font-family: 'Montserrat', sans-serif; /* Police distinctive pour le titre */
+    font-size: 1.8rem;
+    color: #cc2626; /* Vert sombre - couleur signature du site */
+}
