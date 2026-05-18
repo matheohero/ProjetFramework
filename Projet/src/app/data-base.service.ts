@@ -7,6 +7,7 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class DataBaseService {
   lstPc:any;
+  lstUser: Array<Profil> = [];
 
 
   constructor() { 
@@ -36,6 +37,26 @@ export class DataBaseService {
 
     return lstPcFiltree;
   }
+
+
+
+  getUser(user:string) {
+    for (let i = 0; i < this.lstUser.length; i++) {
+      if (this.lstUser[i].nomUser == user) {
+        return this.lstUser[i];
+      }
+    }
+    return undefined;
+  }
+
+  isPwdCorrect(username:string , pwd:string) {
+    let user:Profil|undefined;
+    user = this.getUser(username);
+    if (user == undefined) return false;
+    return (user.mdp == pwd);
+  }
+
+
 }
 
 
@@ -44,4 +65,11 @@ export interface Filtre {
   type : string,
   ramMin : number,
   hddCapaMin : number,
+}
+
+export interface Profil {
+  nomUser : string,
+  mdp : string,
+  historique : any,
+  favory : any
 }
