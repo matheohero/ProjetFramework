@@ -1,18 +1,40 @@
-
-/* ==========================================
-   HEADER - En-tête du site
-========================================== */
 header {
-    background-color: #7ad30e; /* Bleu foncé légèrement différent du body */
+    background-color: #7ad30e;
     padding: 15px 20px;
-    display: flex; /* Flexbox pour aligner logo et navigation */
-    justify-content: space-between; /* Espace entre logo et menu */
-    align-items: center; /* Centre verticalement les éléments */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
 }
 
-/* Titre principal du header (logo) */
 header h1 {
-    font-family: 'Montserrat', sans-serif; /* Police distinctive pour le titre */
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
-    color: #cc2626; /* Vert sombre - couleur signature du site */
+    color: #cc2626;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.search-bar input {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    outline: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    border: 1px solid #ccc;
+    border-left: none;
+    background: white;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 0 4px 4px 0;
+}
+
+header img {
+    object-fit: contain;
 }

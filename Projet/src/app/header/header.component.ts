@@ -10,6 +10,6 @@ export class HeaderComponent {
   query: string = '';
 
   onSearch() {
-    console.log('Recherche :', this.query); // remplacez par votre logique
+    console.log('Recherche :', this.query);
   }
 }
