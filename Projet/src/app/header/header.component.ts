@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  query: string = '';
 
+  onSearch() {
+    console.log('Recherche :', this.query); // remplacez par votre logique
+  }
 }

@@ -18,12 +18,20 @@
 
 <body>
 
-      
+
     <header>
+        <img width= "10%" height="10%" src="/data/Image/Warwick_1.jpg" alt="Warwick"/>
         <h1>Vive Warwick</h1>
+
+        <!-- Barre de recherche -->
+        <div class="search-bar">
+            <input type="search" [(ngModel)]="query" placeholder="Rechercher..." (keyup.enter)="onSearch()"/>
+            <button (click)="onSearch()">🔍</button>
+        </div>
         <a routerLink="/accueil">
             <img width= "10%" height="10%" src="/data/Image/favoris.png" alt="Favoris"/>
         </a>
+
     </header>
 </body>
 
