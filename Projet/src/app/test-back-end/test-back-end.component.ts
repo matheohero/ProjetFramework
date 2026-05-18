@@ -13,13 +13,10 @@ export class TestBackEndComponent {
 
   test() {
     let filters: Filtre = {
-      prixMin: -1,
-      prixMax: 500,
-      type: 'portable',
-      ramMin: -1,
-      ramMax: -1,
-      hddCapaMin: -1,
-      hddCapaMax: -1
+      prixMax: -1,//800
+      type: '',//portable
+      ramMin: -1, //8
+      hddCapaMin: 1024,
     };
 
 
