@@ -6,13 +6,15 @@ import { Injectable, OnInit } from '@angular/core';
   providedIn: 'root'
 })
 export class DataBaseService {
-  lstPc:any;
-  lstUser: Array<Profil> = [];
+  private LOCAL_STORAGE = "users";
 
+  lstPc:any;
+  lstUser:Array<Profil> = [];
 
   constructor() { 
     this.lstPc = pc;
   }
+
 
   getAllpc() {
     return this.lstPc;
@@ -38,9 +40,16 @@ export class DataBaseService {
     return lstPcFiltree;
   }
 
+  getAllUser() {
+    const users = localStorage.getItem(this.LOCAL_STORAGE);
+    if (users != null) {
+      this.lstUser = JSON.parse(users);
+    }
+  }
 
 
   getUser(user:string) {
+    this.getAllUser();
     for (let i = 0; i < this.lstUser.length; i++) {
       if (this.lstUser[i].nomUser == user) {
         return this.lstUser[i];
@@ -50,10 +59,22 @@ export class DataBaseService {
   }
 
   isPwdCorrect(username:string , pwd:string) {
-    let user:Profil|undefined;
-    user = this.getUser(username);
-    if (user == undefined) return false;
-    return (user.mdp == pwd);
+    
+  }
+
+
+  createUser(username:string , pwd:string) {
+    this.getAllUser();
+    let user: Profil = {
+      nomUser: username,
+      mdp: pwd,
+      historique: [],
+      favory: []
+    };
+
+    this.lstUser.push(user);
+
+    localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
   }
 
 
