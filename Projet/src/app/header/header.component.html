@@ -21,7 +21,7 @@
   
     <div class="header-right">
 
-        <div class="filters"> 
+        <div class="filters" *ngIf="!isHomePage()"> 
             <button class="filter-btn" (click)="toggleMenu()" [class.open]="menuOpen">
                 PLUS DE FILTRES
                 <span class="material-icons">⮟</span>
