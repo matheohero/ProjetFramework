@@ -12,4 +12,11 @@ export class HeaderComponent {
   onSearch() {
     console.log('Recherche :', this.query);
   }
+
+  menuOpen: boolean = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
 }

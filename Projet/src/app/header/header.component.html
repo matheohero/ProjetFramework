@@ -1,19 +1,34 @@
 <header>
-
-
     <div class="header-left">
-        <img width="10%" height=" 10%" src="/data/Image/Warwick_1.jpg" alt="Warwick"/>
-        <h1>Vive Warwick</h1>
+      <div class="logo-icon">
+        <img src="/data/Image/logo.png" alt="logo" />
     </div>
+    <div class="title-block">
+        <h1>TechStore</h1>
+        <span>Informatique & High-Tech</span>
+     </div>
+    </div>
+  
 
+  
     <div class="search-bar">
         <input type="search" [(ngModel)]="query" placeholder="Rechercher..." (keyup.enter)="onSearch()"/>
-        <button (click)="onSearch()">🔍</button>
+        <button (click)="onSearch()"><span class="material-icons">search</span></button>
     </div>
 
+    <div class="filters"> 
+        <button class="arrow-btn" (click)="toggleMenu()" [class.open]="menuOpen">
+            <span>Filtres</span>
+            <span class="material-icons"></span>
+          </button>
+    </div>
+  
     <div class="header-right">
-        <a routerLink="/accueil">
-            <img width="10%" height="10%" src="/data/Image/favoris.png" alt="Favoris"/>
-        </a>
+        <button class="icon-btn" title="Favoris" routerLink="/favoris">
+            <img src="/data/Image/favoris.png" alt="Favoris" />
+        </button>
+        <div class="avatar">
+            <img src="/data/Image/compte.png" alt="compte" />
+        </div>
     </div>
 </header>
