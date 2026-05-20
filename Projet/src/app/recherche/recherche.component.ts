@@ -10,18 +10,22 @@ import { DataBaseService } from '../data-base.service';
 export class RechercheComponent {
 
   db: DataBaseService = new DataBaseService();  
-  lstNomPc = ["Respire TC10","Respire TC2"];
+  lstNomPc: string[] = [];
 
   searchPC(nom:string) {
     console.log("nom -->"+nom);
     let lstPc = this.db.searchPc({
-      prixMax: 0,
+      prixMax: -1,
       type: '',
-      ramMin: 0,
-      hddCapaMin: 0,
-      nomPc: ''
+      ramMin: -1,
+      hddCapaMin: -1,
+      nomPc: nom
     });
 
-    console.log(lstPc);
+    for (let index = 0; index < lstPc.length; index++) {
+      this.lstNomPc.push(lstPc[index].nom);
+    }
+
+    
   }
 }
