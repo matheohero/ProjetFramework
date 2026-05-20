@@ -11,5 +11,9 @@ export class RechercheComponent {
 
   db: DataBaseService = new DataBaseService();  
 
-  
+  recherche: string = "";
+
+  searchPC(nom:string) {
+    console.log("nom -->"+nom);
+  }
 }
