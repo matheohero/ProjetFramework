@@ -22,8 +22,8 @@ export class HeaderComponent {
 
   constructor(public router: Router) {}
 
-  isHomePage(): boolean {
-    return this.router.url === '/';
+  showFiltersButton(): boolean {
+    return this.router.url !== '/questions';
   }
 
 }
