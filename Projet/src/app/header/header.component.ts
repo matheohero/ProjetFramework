@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output  , EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,10 +8,14 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
+  @Output() searchEvent = new EventEmitter<string>();
+  
   query: string = '';
 
   onSearch() {
     console.log('Recherche :', this.query);
+    this.searchEvent.emit(this.query);
   }
 
   menuOpen = false;
