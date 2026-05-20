@@ -1,20 +1,19 @@
 .product-card {
-    /* 1/4 de largeur + marge */
-    width: calc(25% - 1rem);
+    width: 200px;
     margin: 0.5rem;
     border: 1px solid black;
     border-radius: 8px;
     overflow: hidden;
   
     img {
-      width: 100%;
+      width: 200px;
+      height: 200px;
       display: block;
     }
   
     .product-info {
-      /* nom et prix sur la même ligne */
       display: flex;
-      justify-content: space-between;
+      /*justify-content: space-between;*/
       align-items: center;
       padding: 8px 12px;
       gap: 8px;
