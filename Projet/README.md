@@ -2,9 +2,9 @@
 
 ## Pages :
 
-- Acceuil
-- Questions
-- Recherche -> en cour
+- Acceuil  
+- Questions                     en cour
+- Recherche                     en cour
 - Présentation produit
 - Favoris
 - Historique de recherche
@@ -14,14 +14,15 @@
 - Mentions légales
 
 ## Composants majeurs et leurs sous composants principaux :
-- Header
-    - Bandeau dépliable de recherche avancée
-    - Barre de recherche
+- Header                                        structure faite
+    - Bandeau dépliable de recherche avancée    structure faite
+    - Barre de recherche                        Fait
 - Footer
     - Texte cliquable
-- Produit
-    - Image cliquable
-    - Texte cliquable
+- Produit                                       Strucutre faite
+    - Image cliquable                           bof
+    - Texte cliquable                           bof
+    - Récupération du prix                      Fait
 - Description produit
     - Texte cliquable
     - Image cliquable
