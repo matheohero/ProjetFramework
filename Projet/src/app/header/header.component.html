@@ -13,17 +13,24 @@
   
     <div class="search-bar">
         <input type="search" [(ngModel)]="query" placeholder="Rechercher..." (keyup.enter)="onSearch()"/>
-        <button (click)="onSearch()"><span class="material-icons">search</span></button>
+        <button (click)="onSearch()"><span class="search-bar-icon">⌕</span></button>
     </div>
 
-    <div class="filters"> 
-        <button class="arrow-btn" (click)="toggleMenu()" [class.open]="menuOpen">
-            <span>Filtres</span>
-            <span class="material-icons"></span>
-          </button>
-    </div>
+
+
   
     <div class="header-right">
+
+        <div class="filters"> 
+            <button class="filter-btn" (click)="toggleMenu()" [class.open]="menuOpen">
+                PLUS DE FILTRES
+                <span class="material-icons">⮟</span>
+            </button>
+        </div>
+
+       
+
+
         <button class="icon-btn" title="Favoris" routerLink="/favoris">
             <img src="/data/Image/favoris.png" alt="Favoris" />
         </button>
@@ -31,4 +38,5 @@
             <img src="/data/Image/compte.png" alt="compte" />
         </div>
     </div>
-</header>
+</header> 
+<app-filtres *ngIf="menuOpen"></app-filtres>

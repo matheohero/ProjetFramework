@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TestBackEndComponent } from './test-back-end/test-back-end.component';
 import { FormsModule } from '@angular/forms';
+import { FiltresComponent } from './filtres/filtres.component';
 
 
 
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     AcceuilComponent,
-    TestBackEndComponent
+    TestBackEndComponent,
+    FiltresComponent
   ],
   imports: [
     BrowserModule,

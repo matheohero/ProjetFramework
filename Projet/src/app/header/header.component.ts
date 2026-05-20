@@ -13,10 +13,10 @@ export class HeaderComponent {
     console.log('Recherche :', this.query);
   }
 
-  menuOpen: boolean = false;
+  menuOpen = false;
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+  toggleMenu(): void {
+      this.menuOpen = !this.menuOpen;
   }
 
 }
