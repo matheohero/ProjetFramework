@@ -17,14 +17,15 @@ export class TestBackEndComponent {
       type: 'portable',//portable
       ramMin: 8, //8
       hddCapaMin: 1024,
+      nomPc: "Vi"
     };
 
 
     //console.log(this.db.getAllpc());
-    //console.log(this.db.searchPc(filters));
+    console.log(this.db.searchPc(filters));
 
-    this.db.createUser("test","1234")
-    console.log(this.db.getUser("test"));
-    console.log(this.db.getUser("test4"));
+    //this.db.createUser("test","1234")
+    //console.log(this.db.getUser("test"));
+    //console.log(this.db.getUser("test4"));
   }
 }

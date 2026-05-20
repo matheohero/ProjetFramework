@@ -1,0 +1,33 @@
+.product-card {
+    width: 200px;
+    margin: 0.5rem;
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+  
+    img {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+  
+    .product-info {
+      display: flex;
+      /*justify-content: space-between;*/
+      align-items: center;
+      padding: 8px 12px;
+      gap: 8px;
+    }
+  
+    .name {
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  
+    .price {
+      white-space: nowrap;
+      font-weight: 500;
+    }
+  }

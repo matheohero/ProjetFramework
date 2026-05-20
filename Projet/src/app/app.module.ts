@@ -8,6 +8,8 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TestBackEndComponent } from './test-back-end/test-back-end.component';
 import { FormsModule } from '@angular/forms';
 import { FiltresComponent } from './filtres/filtres.component';
+import { ProduitComponent } from './produit/produit.component';
+
 
 
 
@@ -19,7 +21,8 @@ import { FiltresComponent } from './filtres/filtres.component';
     HeaderComponent,
     AcceuilComponent,
     TestBackEndComponent,
-    FiltresComponent
+    FiltresComponent,
+    ProduitComponent,
   ],
   imports: [
     BrowserModule,

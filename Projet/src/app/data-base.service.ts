@@ -23,6 +23,9 @@ export class DataBaseService {
   searchPc(filtres : Filtre) {
     let lstPcFiltree = this.lstPc;
 
+    if (filtres.nomPc != "") {
+      lstPcFiltree = lstPcFiltree.filter((pc: { nom: string; }) => pc.nom.includes(filtres.nomPc));
+    }
     if (filtres.prixMax != -1) {
       lstPcFiltree = lstPcFiltree.filter((pc: { prix: number; }) => filtres.prixMax >= pc.prix);
     }
@@ -39,6 +42,8 @@ export class DataBaseService {
 
     return lstPcFiltree;
   }
+
+  
 
   getAllUser() {
     const users = localStorage.getItem(this.LOCAL_STORAGE);
@@ -86,6 +91,7 @@ export interface Filtre {
   type : string,
   ramMin : number,
   hddCapaMin : number,
+  nomPc : string
 }
 
 export interface Profil {
