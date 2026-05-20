@@ -2,16 +2,16 @@
 
 ## Pages :
 
-- Acceuil  
+- Acceuil                       Créé
 - Questions                     en cour
 - Recherche                     en cour
-- Présentation produit
-- Favoris
-- Historique de recherche
-- Création de compte
-- Login
-- Bug report
-- Mentions légales
+- Présentation produit          Créé
+- Favoris                       Créé
+- Historique de recherche       Créé
+- Création de compte            Créé
+- Login                         Créé
+- Bug report                    Créé
+- Mentions légales              Créé
 
 ## Composants majeurs et leurs sous composants principaux :
 - Header                                        structure faite

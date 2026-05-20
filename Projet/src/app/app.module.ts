@@ -11,6 +11,13 @@ import { FiltresComponent } from './filtres/filtres.component';
 import { ProduitComponent } from './produit/produit.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { RechercheComponent } from './recherche/recherche.component';
+import { BugReportComponent } from './bug-report/bug-report.component';
+import { ShowProduitsComponent } from './show-produits/show-produits.component';
+import { FavorisComponent } from './favoris/favoris.component';
+import { HistoriqueComponent } from './historique/historique.component';
+import { CreerCompteComponent } from './creer-compte/creer-compte.component';
+import { LoginComponent } from './login/login.component';
+import { LegalComponent } from './legal/legal.component';
 
 
 
@@ -28,6 +35,13 @@ import { RechercheComponent } from './recherche/recherche.component';
     ProduitComponent,
     QuestionsComponent,
     RechercheComponent,
+    BugReportComponent,
+    ShowProduitsComponent,
+    FavorisComponent,
+    HistoriqueComponent,
+    CreerCompteComponent,
+    LoginComponent,
+    LegalComponent,
   ],
   imports: [
     BrowserModule,

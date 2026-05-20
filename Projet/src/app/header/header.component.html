@@ -21,9 +21,13 @@
   
     <div class="header-right">
 
-        <div class="filters" *ngIf="!showFiltersButton"> 
-            <button class="filter-btn" (click)="toggleMenu()" [class.open]="menuOpen">
+        <div class="filters" *ngIf="showFiltersButton()">
+            <button class="filter-btn"
+                    (click)="toggleMenu()"
+                    [class.open]="menuOpen">
+        
                 PLUS DE FILTRES
+        
                 <span class="material-icons">⮟</span>
             </button>
         </div>
