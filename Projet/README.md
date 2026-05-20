@@ -4,7 +4,7 @@
 
 - Acceuil
 - Questions
-- Recherche
+- Recherche -> en cour
 - Présentation produit
 - Favoris
 - Historique de recherche
