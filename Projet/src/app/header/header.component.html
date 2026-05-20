@@ -8,17 +8,12 @@
         <span>Informatique & High-Tech</span>
      </div>
     </div>
-  
-
-  
+   
     <div class="search-bar">
         <input type="search" [(ngModel)]="query" placeholder="Rechercher..." (keyup.enter)="onSearch()"/>
         <button (click)="onSearch()"><span class="search-bar-icon">⌕</span></button>
     </div>
 
-
-
-  
     <div class="header-right">
 
         <div class="filters" *ngIf="showFiltersButton()">
@@ -38,9 +33,10 @@
         <button class="icon-btn" title="Favoris" routerLink="/favoris">
             <img src="/data/Image/favoris.png" alt="Favoris" />
         </button>
-        <div class="avatar">
+
+        <button class="avatar" title="Historique" routerLink="/historique">
             <img src="/data/Image/compte.png" alt="compte" />
-        </div>
+        </button>
     </div>
 </header> 
 <app-filtres *ngIf="menuOpen"></app-filtres>

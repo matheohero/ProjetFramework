@@ -12,7 +12,6 @@ import { ProduitComponent } from './produit/produit.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { RechercheComponent } from './recherche/recherche.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
-import { ShowProduitsComponent } from './show-produits/show-produits.component';
 import { FavorisComponent } from './favoris/favoris.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { CreerCompteComponent } from './creer-compte/creer-compte.component';
@@ -36,7 +35,6 @@ import { LegalComponent } from './legal/legal.component';
     QuestionsComponent,
     RechercheComponent,
     BugReportComponent,
-    ShowProduitsComponent,
     FavorisComponent,
     HistoriqueComponent,
     CreerCompteComponent,
