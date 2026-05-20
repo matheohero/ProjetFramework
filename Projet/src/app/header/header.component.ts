@@ -1,4 +1,5 @@
 import { Component, Output  , EventEmitter} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,12 @@ export class HeaderComponent {
 
   toggleMenu(): void {
       this.menuOpen = !this.menuOpen;
+  }
+
+  constructor(public router: Router) {}
+
+  showFiltersButton(): boolean {
+    return this.router.url !== '/questions';
   }
 
 }
