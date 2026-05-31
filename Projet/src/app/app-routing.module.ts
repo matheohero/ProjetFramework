@@ -7,6 +7,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { FavorisComponent } from './favoris/favoris.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
+import { LegalComponent } from './legal/legal.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'favoris',component: FavorisComponent},
   { path: 'historique',component: HistoriqueComponent},
   { path: 'bug-report',component: BugReportComponent},
+  { path: 'legal',component: LegalComponent},
 ];
 
 @NgModule({
