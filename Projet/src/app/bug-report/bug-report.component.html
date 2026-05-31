@@ -1,1 +1,52 @@
-<p>bug-report works!</p>
+<app-header></app-header>
+
+<div class="page-top">
+  <a routerLink="/" class="home-arrow">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  </a>
+</div>
+
+<div class="bug-report-container">
+  <div class="bug-report-card">
+    <h1>Signaler un bug</h1>
+
+    <form>
+      <div class="form-group">
+        <label for="raison">Raison</label>
+        <input
+          type="text"
+          id="raison"
+          name="raison"
+          placeholder="Titre court du problème"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="explication">Explication</label>
+        <textarea
+          id="explication"
+          name="explication"
+          placeholder="Décrivez le bug rencontré..."
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          accept="image/*"
+        />
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Envoyer le signalement
+      </button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

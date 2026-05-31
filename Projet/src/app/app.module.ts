@@ -17,6 +17,7 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { CreerCompteComponent } from './creer-compte/creer-compte.component';
 import { LoginComponent } from './login/login.component';
 import { LegalComponent } from './legal/legal.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -40,6 +41,7 @@ import { LegalComponent } from './legal/legal.component';
     CreerCompteComponent,
     LoginComponent,
     LegalComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,174 @@
+/* =======================
+   GLOBAL RESET (IMPORTANT)
+======================= */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0f172a;
+  font-family: Arial, sans-serif;
+}
+
+/* =======================
+   HEADER CONTAINER
+======================= */
+app-header {
+  display: block;
+  background: #0f172a;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* =======================
+   FLÈCHE RETOUR ACCUEIL
+======================= */
+.page-top {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 0 0 20px;
+
+  background: #0f172a; /* IMPORTANT: même fond => supprime la ligne blanche */
+  margin: 0;
+}
+
+.home-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  color: #cbd5e1;
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.home-arrow:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #38bdf8;
+
+  transform: translateX(-3px);
+}
+
+.home-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* =======================
+   PAGE BUG REPORT
+======================= */
+.bug-report-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  min-height: calc(100vh - 200px);
+
+  padding: 40px 20px;
+
+  background: linear-gradient(135deg, #0f172a, #111827);
+}
+
+.bug-report-card {
+  width: 100%;
+  max-width: 900px;
+
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  backdrop-filter: blur(10px);
+}
+
+.bug-report-card h1 {
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* =======================
+   FORMULAIRE
+======================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  color: #e2e8f0;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input[type="text"] {
+  padding: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 300px;
+
+  padding: 12px;
+
+  resize: vertical;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+
+  font-size: 1rem;
+}
+
+.form-group input[type="file"] {
+  color: #cbd5e1;
+}
+
+/* =======================
+   BOUTON
+======================= */
+.submit-btn {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #38bdf8;
+  color: #0f172a;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #0ea5e9;
+  transform: translateY(-2px);
+}
