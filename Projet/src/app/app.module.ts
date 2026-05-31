@@ -18,6 +18,7 @@ import { CreerCompteComponent } from './creer-compte/creer-compte.component';
 import { LoginComponent } from './login/login.component';
 import { LegalComponent } from './legal/legal.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -42,6 +43,7 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     LegalComponent,
     FooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

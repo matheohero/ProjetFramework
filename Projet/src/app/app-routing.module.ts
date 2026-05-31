@@ -8,6 +8,7 @@ import { FavorisComponent } from './favoris/favoris.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
 import { LegalComponent } from './legal/legal.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'historique',component: HistoriqueComponent},
   { path: 'bug-report',component: BugReportComponent},
   { path: 'legal',component: LegalComponent},
+  { path: 'contact',component: ContactComponent},
 ];
 
 @NgModule({

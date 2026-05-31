@@ -1,0 +1,86 @@
+/* PAGE */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  min-height: calc(100vh - 200px);
+
+  padding: 40px 20px;
+
+  background: linear-gradient(135deg, #0f172a, #111827);
+}
+
+/* CARD */
+.contact-card {
+  width: 100%;
+  max-width: 900px;
+
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  backdrop-filter: blur(10px);
+
+  color: #e2e8f0;
+}
+
+.contact-card h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 25px;
+}
+
+/* INFOS */
+.contact-info {
+  margin-bottom: 30px;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+.contact-info p strong {
+  color: #38bdf8;
+}
+
+/* BACK ARROW (comme bug report) */
+.page-top {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 0 0 20px;
+
+  background: #0f172a;
+}
+
+.home-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  color: #cbd5e1;
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.home-arrow:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #38bdf8;
+
+  transform: translateX(-3px);
+}
+
+.home-arrow svg {
+  width: 20px;
+  height: 20px;
+}
