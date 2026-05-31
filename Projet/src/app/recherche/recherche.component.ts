@@ -26,6 +26,5 @@ export class RechercheComponent {
       this.lstNomPc.push(lstPc[index].nom);
     }
 
-    
   }
 }
