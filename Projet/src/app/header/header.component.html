@@ -38,9 +38,15 @@
             <img src="/data/Image/favoris.png" alt="Favoris" />
         </button>
 
-        <button class="avatar" title="Historique" routerLink="/historique">
+        <button *ngIf="showLogoutButton() ; else logout" class="avatar" title="Historique" routerLink="/historique">
             <img src="/data/Image/compte.png" alt="compte" />
         </button>
+
+        <ng-template #logout>
+            <button class="avatar" (click)="logoutFunc()">
+                <img src="/data/Image/Logout.png" alt="compte" />
+            </button>            
+        </ng-template>
     </div>
 </header> 
 <app-filtres *ngIf="menuOpen"></app-filtres>

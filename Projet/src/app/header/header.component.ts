@@ -57,4 +57,13 @@ export class HeaderComponent implements OnInit {
     return this.router.url !== '/questions';
   }
 
+  showLogoutButton() {
+    return this.router.url != "/historique";
+  }
+
+  logoutFunc() {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
+  }
+
 } 
