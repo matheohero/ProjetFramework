@@ -9,6 +9,7 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
 import { LegalComponent } from './legal/legal.component';
 import { ContactComponent } from './contact/contact.component';
+import { CreerCompteComponent } from './creer-compte/creer-compte.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'bug-report',component: BugReportComponent},
   { path: 'legal',component: LegalComponent},
   { path: 'contact',component: ContactComponent},
+  { path: 'cree-compte',component: CreerCompteComponent},
 ];
 
 @NgModule({
