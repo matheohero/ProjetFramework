@@ -11,10 +11,10 @@ export class FiltresComponent {
 
   constructor(private router: Router) {}
 
-  ramMin: number = 0;
-  romMin: number = 0;
+  ramMin: number = 32;
+  romMin: number = 3840;
   prixMax: number = 5000;
-  
+
   allerRecherche() {
     this.router.navigate(['/recherche']);
   }
