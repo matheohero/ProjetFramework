@@ -4,26 +4,34 @@
         <h3>PC</h3>
 
         <label>
-            <input type="checkbox">
-            Portable
+        <input type="checkbox"
+            [checked]="typePC === 'portable'"
+            (change)="toggleFilter('typePC','portable')">
+        Portable
         </label>
 
         <label>
-            <input type="checkbox">
-            Fixe
+        <input type="checkbox"
+            [checked]="typePC === 'fixe'"
+            (change)="toggleFilter('typePC','fixe')">
+        Fixe
         </label>
     </div>
     <div class="filtre-item">
         <h3>Processeur</h3>
 
         <label>
-            <input type="checkbox">
-            INTEL
+        <input type="checkbox"
+            [checked]="cpu === 'intel'"
+            (change)="toggleFilter('cpu','intel')">
+        INTEL
         </label>
 
         <label>
-            <input type="checkbox">
-            AMD
+        <input type="checkbox"
+            [checked]="cpu === 'amd'"
+            (change)="toggleFilter('cpu','amd')">
+        AMD
         </label>
     </div>
 
@@ -33,22 +41,20 @@
 
         <!-- RAM -->
         <label>RAM</label>
-        <input
-            type="range"
-            min="0"
-            max="32"
-            step="1"
-            [(ngModel)]="ramMin">
+        <input type="range"
+        min="0" max="32" step="1"
+        [ngModel]="ramMin"
+        (ngModelChange)="updateRangeFilter('ramMin', $event)">
+
         <span>{{ ramMin }} Go</span>
 
         <!-- ROM -->
         <label style="margin-top:10px;">Stockage</label>
-        <input
-            type="range"
-            min="0"
-            max="3840"
-            step="10"
-            [(ngModel)]="romMin">
+        <input type="range"
+        min="0" max="3840" step="10"
+        [ngModel]="romMin"
+        (ngModelChange)="updateRangeFilter('romMin', $event)">
+
         <span>{{ romMin }} Go</span>
 
     </div>
@@ -57,24 +63,27 @@
         <h3>Carte graphique</h3>
 
         <label>
-            <input type="checkbox">
-            NVIDIA
+        <input type="checkbox"
+            [checked]="gpu === 'nvidia'"
+            (change)="toggleFilter('gpu','nvidia')">
+        NVIDIA
         </label>
 
         <label>
-            <input type="checkbox">
-            INTEL
+        <input type="checkbox"
+            [checked]="gpu === 'intel'"
+            (change)="toggleFilter('gpu','intel')">
+        INTEL
         </label>
     </div>
 
     <div class="filtre-item">
         <h3>Prix</h3>
 
-        <input
-            type="range"
-            min="0"
-            max="5000"
-            [(ngModel)]="prixMax">
+        <input type="range"
+        min="0" max="5000"
+        [ngModel]="prixMax"
+        (ngModelChange)="updateRangeFilter('prixMax', $event)">
 
         <span>{{ prixMax }} €</span>
     </div>
