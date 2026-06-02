@@ -43,6 +43,9 @@ export class DataBaseService {
     return lstPcFiltree;
   }
 
+  searchPcByName(pcName : string) {
+      return this.lstPc.filter((pc: { nom: string; }) => pc.nom == pcName)[0];
+  }
   
 
   getAllUser() {
@@ -86,6 +89,17 @@ export class DataBaseService {
     localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
   }
 
+
+  addFavorite(username:string , pc:string) {
+    let user = this.getUser(username);
+    if (user == undefined) return;
+
+    if (!user.favory.includes(pc)) { 
+      user.favory.push(pc);
+    }
+    
+    localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
+  }
 
 }
 

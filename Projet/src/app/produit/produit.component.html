@@ -5,4 +5,7 @@
       <span class="name">{{nom}}</span>
       <span class="price">{{prix}}€</span>
     </div>
+    <button *ngIf="showFavButton" type="button" (click)="addToFavorite()">
+        Mettre en favori
+    </button>
   </div>

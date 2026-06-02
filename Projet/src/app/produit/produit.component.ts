@@ -25,9 +25,19 @@ export class ProduitComponent implements OnInit{
   @Input()
   nom:string = "";
 
+  @Input()
+  showFavButton:boolean = false;
+
   prix:number = -1;
 
-
+  addToFavorite() {
+    let user = localStorage.getItem('currentUser');
+    if (user == null) {
+      alert("Il faut etre connecter pour pouvoir mettre en favoris");
+      return;
+    }
+    this.db.addFavorite(user,this.nom);
+  }
 
   
 }
