@@ -1,5 +1,3 @@
-<app-header></app-header>
-
 <div class="container" *ngIf="pc; else notFound">
 
   <h1>{{ pc.nom }}</h1>
@@ -43,5 +41,3 @@
 <ng-template #notFound>
   <h2>PC introuvable</h2>
 </ng-template>
-
-<app-footer></app-footer>
