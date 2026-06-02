@@ -1,0 +1,76 @@
+<div class="filtres-container">
+
+    <div class="filtre-item">
+        <h3>PC</h3>
+
+        <label>
+            <input type="checkbox">
+            Portable
+        </label>
+
+        <label>
+            <input type="checkbox">
+            Fixe
+        </label>
+    </div>
+
+    <div class="filtre-item">
+        <h3>Processeur</h3>
+
+        <label>
+            <input type="checkbox">
+            Intel
+        </label>
+
+        <label>
+            <input type="checkbox">
+            AMD
+        </label>
+    </div>
+
+    <div class="filtre-item">
+        <h3>Mémoire</h3>
+
+        <label>
+            <input type="checkbox">
+            8 Go
+        </label>
+
+        <label>
+            <input type="checkbox">
+            16 Go
+        </label>
+
+        <label>
+            <input type="checkbox">
+            32 Go
+        </label>
+    </div>
+
+    <div class="filtre-item">
+        <h3>Carte graphique</h3>
+
+        <label>
+            <input type="checkbox">
+            NVIDIA
+        </label>
+
+        <label>
+            <input type="checkbox">
+            AMD Radeon
+        </label>
+    </div>
+
+    <div class="filtre-item">
+        <h3>Prix</h3>
+
+        <input
+            type="range"
+            min="0"
+            max="5000"
+            [(ngModel)]="prixMax">
+
+        <span>{{ prixMax }} €</span>
+    </div>
+
+</div>

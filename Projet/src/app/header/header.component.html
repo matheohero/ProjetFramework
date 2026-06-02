@@ -1,1 +1,42 @@
-<p>header works!</p>
+<header>
+    <div class="header-left">
+      <div class="logo-icon">
+        <img src="/data/Image/logo.png" alt="logo" />
+    </div>
+    <div class="title-block">
+        <h1>TechStore</h1>
+        <span>Informatique & High-Tech</span>
+     </div>
+    </div>
+   
+    <div class="search-bar">
+        <input type="search" [(ngModel)]="query" placeholder="Rechercher..." (keyup.enter)="onSearch()"/>
+        <button (click)="onSearch()"><span class="search-bar-icon">⌕</span></button>
+    </div>
+
+    <div class="header-right">
+
+        <div class="filters" *ngIf="showFiltersButton()">
+            <button class="filter-btn"
+                    (click)="toggleMenu()"
+                    [class.open]="menuOpen">
+        
+                PLUS DE FILTRES
+        
+                <span class="material-icons">⮟</span>
+            </button>
+        </div>
+
+       
+
+
+        <button class="icon-btn" title="Favoris" routerLink="/favoris">
+            <img src="/data/Image/favoris.png" alt="Favoris" />
+        </button>
+
+        <button class="avatar" title="Historique" routerLink="/historique">
+            <img src="/data/Image/compte.png" alt="compte" />
+        </button>
+    </div>
+</header> 
+<app-filtres *ngIf="menuOpen"></app-filtres>

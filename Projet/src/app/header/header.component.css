@@ -1,0 +1,170 @@
+header {
+    background: #303744;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 24px;
+    height: 100px;
+    position: relative;
+}
+  
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.logo-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.logo-icon img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+.title-block span {
+    font-size: 10px;
+    color: #979faa;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+  
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 1fr;
+}
+.search-bar input {
+    flex: 1;
+    padding: 0 12px;
+    height: 38px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    color: #0a1628;
+}
+.search-bar button {
+    background: #2563eb;
+    border: none;
+    height: 38px;
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+}
+.search-bar-icon {
+    font-size: 300%;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-right: 100px;
+    padding-left: 150px;
+}
+.filter-btn {
+    min-width: 182px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #1e293b;
+    border: 2px solid #2563eb;
+    border-radius: 10px;
+    height: 48px;
+    padding: 0 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background .2s, border-color .2s;
+}
+.filter-btn .material-icons {
+    font-size: 28px;
+    transition: transform .2s;
+}
+.filter-btn.open {
+    background: #2563eb;
+    border-color: #2563eb;
+}
+.filter-btn.open .material-icons {
+    transform: rotate(180deg);
+}
+.filter-btn:hover {
+    background: #25a2eb;
+}
+
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10%;
+}
+.icon-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: #2563eb;
+    border: 3px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #94a3b8;
+}
+.icon-btn:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+.icon-btn img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: #2563eb;
+    border: 3px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #94a3b8;
+}
+.avatar img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.avatar:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
