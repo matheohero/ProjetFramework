@@ -38,11 +38,9 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearch(): void {
-    if (this.query.trim()) {
       this.router.navigate(['/recherche'], {
-        queryParams: { q: this.query }
+        queryParams: { q: this.query.trim() }
       });
-    }
   }
 
   toggleMenu(): void {
