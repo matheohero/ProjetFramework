@@ -11,6 +11,7 @@ import { LegalComponent } from './legal/legal.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreerCompteComponent } from './creer-compte/creer-compte.component';
 import { LoginComponent } from './login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -18,8 +19,8 @@ const routes: Routes = [
   { path: 'recherche' , component: RechercheComponent},
   { path: 'test', component: TestBackEndComponent },
   { path: 'questions', component: QuestionsComponent },
-  { path: 'favoris',component: FavorisComponent},
-  { path: 'historique',component: HistoriqueComponent},
+  { path: 'favoris',component: FavorisComponent , canActivate: [authGuard]},
+  { path: 'historique',component: HistoriqueComponent , canActivate: [authGuard]},
   { path: 'bug-report',component: BugReportComponent},
   { path: 'legal',component: LegalComponent},
   { path: 'contact',component: ContactComponent},
