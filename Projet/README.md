@@ -5,7 +5,7 @@
 - Acceuil                       fait
 - Questions                     en cour
 - Recherche                     en cour
-- Présentation produit          Créé
+- Présentation produit          Fait
 - Favoris                       Fait
 - Historique de recherche       en cour
 - Création de compte            Fait
