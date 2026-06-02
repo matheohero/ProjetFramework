@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 export interface Question {
+
   id: string;
   text: string;
   type: 'yesno' | 'choice' | 'budget';
@@ -18,6 +20,13 @@ export interface HistoryEntry {
   answer: string;
 }
 
+export interface PcProfile {
+  ram: number;        
+  rom: number;        
+  budget: number;     
+  type: string;       
+}
+
 @Component({
   selector: 'app-questions',
   standalone: false,
@@ -26,6 +35,16 @@ export interface HistoryEntry {
 })
 
 export class QuestionsComponent implements OnInit {
+
+  pcProfile: PcProfile = {
+    ram: -1,
+    rom: -1,
+    budget: -1,
+    type: '',
+  };
+
+  constructor(private router: Router) {}
+
   questions: { [id: string]: Question } = {
     q_gaming: {
       id: 'q_gaming',
@@ -57,7 +76,7 @@ export class QuestionsComponent implements OnInit {
       type: 'yesno',
       isRecommendation: true,
       recommendationText:
-        'Pour les applications gourmandes en ressources, une carte graphique haut de gamme s\'impose.',
+        'Pour les jeux gourmands en ressources, une carte graphique haut de gamme s\'impose.',
       yesNext: 'q_multitask',
       noNext: 'q_multitask',
     },
@@ -200,7 +219,7 @@ export class QuestionsComponent implements OnInit {
       type: 'yesno',
       isRecommendation: true,
       recommendationText:
-        'Nous filtrons les configurations avec 2 To ou plus de stockage. Disque de ~300 Go minimum, et si le reste du budget le permet, vous pourrez choisir plus de stockage.',
+        'Nous filtrons les configurations avec 2 To ou plus de stockage.',
       yesNext: 'rec_final',
       noNext: 'rec_final',
     },
@@ -210,7 +229,7 @@ export class QuestionsComponent implements OnInit {
       type: 'yesno',
       isRecommendation: true,
       recommendationText:
-        'Un SSD de 256 à 512 Go sera largement suffisant pour votre usage.',
+        '256 à 512 Go sera largement suffisant pour votre usage.',
       yesNext: 'rec_final',
       noNext: 'rec_final',
     },
@@ -219,7 +238,7 @@ export class QuestionsComponent implements OnInit {
       text: 'Récapitulatif de vos besoins',
       type: 'yesno',
       isRecommendation: true,
-      recommendationText: '__SUMMARY__',
+      recommendationText: 'Le questionnaire est terminé ! C\'est le moment de choisir l\'ordinateur qui vous convient le mieux !',
     },
   };
 
@@ -233,8 +252,10 @@ export class QuestionsComponent implements OnInit {
   }
 
   get progressPercent(): number {
-    const totalSteps = 14;
-    return Math.min(Math.round((this.history.length / totalSteps) * 100), 95);
+    const totalSteps = Object.values(this.questions)
+      .filter(q => !q.isRecommendation).length- 1;
+    if (this.finished) return 100;
+    return Math.min(Math.round((this.history.length / totalSteps) * 100), 100);
   }
 
   ngOnInit(): void {}
@@ -243,6 +264,11 @@ export class QuestionsComponent implements OnInit {
     const q = this.currentQuestion;
     const label = answer === 'yes' ? 'Oui' : 'Non';
     this.history.push({ questionText: q.text, answer: label });
+
+    if (q.id === 'q_travel') this.pcProfile.type = answer === 'yes' ? 'portable' : 'fixe';
+    if (q.id === 'q_multitask') this.pcProfile.ram  = answer === 'yes' ? 32 : 16;
+    if (q.id === 'q_browser_tabs') this.pcProfile.ram  = answer === 'yes' ? 32 : 16;
+    if (q.id === 'q_storage') this.pcProfile.rom  = answer === 'yes' ? 3840 : 2000;
 
     if (q.isRecommendation) {
       if (q.recommendationText !== '__SUMMARY__') {
@@ -271,6 +297,12 @@ export class QuestionsComponent implements OnInit {
   answerChoice(value: string, label: string): void {
     const q = this.currentQuestion;
     this.history.push({ questionText: q.text, answer: label });
+
+    const budgetMap: Record<string, number> = {
+      low: 500, mid: 900, high: 1500, premium: 2000
+    };
+    if (q.id === 'q_budget') this.pcProfile.budget = budgetMap[value];
+
     const next = q.choiceNext?.[value];
     if (next) {
       this.currentQuestionId = next;
@@ -292,6 +324,8 @@ export class QuestionsComponent implements OnInit {
   proceedFromRecommendation(): void {
     const q = this.currentQuestion;
     if (q.id === 'rec_final') {
+      localStorage.removeItem('pcProfileApplied');
+      localStorage.setItem('pcProfile', JSON.stringify(this.pcProfile));
       this.finished = true;
       return;
     }
@@ -310,11 +344,23 @@ export class QuestionsComponent implements OnInit {
     return this.recommendations;
   }
 
-  restart(): void {
-    this.currentQuestionId = 'q_gaming';
-    this.history = [];
-    this.recommendations = [];
-    this.finished = false;
+  lancerRecherche(): void {
+    localStorage.setItem('pcProfileApplied', 'true');
+    localStorage.setItem('typePC',  this.pcProfile.type);
+    localStorage.setItem('ramMin',  this.pcProfile.ram.toString());
+    localStorage.setItem('romMin',  this.pcProfile.rom.toString());
+    localStorage.setItem('prixMax', this.pcProfile.budget.toString());
+
+    this.router.navigate(['/recherche'], {
+      queryParams: {
+        typePC:  this.pcProfile.type,
+        cpu:     '',
+        gpu:     '',
+        ramMin:  this.pcProfile.ram,
+        romMin:  this.pcProfile.rom,
+        prixMax: this.pcProfile.budget
+      }
+    });
   }
 
   getAnswerIcon(answer: string): string {

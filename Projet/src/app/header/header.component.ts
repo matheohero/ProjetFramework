@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
         gpu: localStorage.getItem('gpu') ?? '',
         ramMin: +(localStorage.getItem('ramMin') ?? 32),
         romMin: +(localStorage.getItem('romMin') ?? 3840),
-        prixMax: +(localStorage.getItem('prixMax') ?? 5000)
+        prixMax: +(localStorage.getItem('prixMax') ?? 2000)
       }
     });
   }
@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
           gpu: localStorage.getItem('gpu') ?? '',
           ramMin: +(localStorage.getItem('ramMin') ?? 32),
           romMin: +(localStorage.getItem('romMin') ?? 3840),
-          prixMax: +(localStorage.getItem('prixMax') ?? 5000)
+          prixMax: +(localStorage.getItem('prixMax') ?? 2000)
         }
       });
 
