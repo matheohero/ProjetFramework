@@ -34,6 +34,7 @@ export class RechercheComponent {
       nomPc: nom
     });
 
+    this.lstNomPc = [];
     for (let index = 0; index < lstPc.length; index++) {
       this.lstNomPc.push(lstPc[index].nom);
     }
