@@ -7,11 +7,11 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class DataBaseService {
   private LOCAL_STORAGE = "users";
-  private HOSTO_SAVE_COUNT = 10;
+  private HISTO_SAVE_COUNT = 10;
 
   lstPc:any;
   lstUser:Array<Profil> = [];
-  Histo:Array<Filtre> = [];
+  histo:Array<Filtre> = [];
 
   constructor() { 
     this.lstPc = pc;
@@ -113,6 +113,12 @@ export class DataBaseService {
 
   addToHisto(filtre:Filtre) {
 
+    if (this.histo.length >= this.HISTO_SAVE_COUNT) {
+      this.histo = this.histo.slice(1);
+    }
+    this.histo.push(filtre);
+
+    localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.histo))
   }
 
 }
