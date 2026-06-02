@@ -17,28 +17,44 @@ export class RechercheComponent {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      const nom = params['q'];
-      if (nom) {
-        this.searchPC(nom);
-      } else {
-        this.searchPC("");
-      }
+
+      const nom = params['q'] ?? '';
+
+      const typePC = params['typePC'] ?? '';
+      const cpu = params['cpu'] ?? '';
+      const gpu = params['gpu'] ?? '';
+
+      const ramMin = +(params['ramMin'] ?? -1);
+      const romMin = +(params['romMin'] ?? -1);
+      const prixMax = +(params['prixMax'] ?? -1);
+
+      this.searchPC(nom, typePC, cpu, gpu, ramMin, romMin, prixMax);
     });
   }
 
-  searchPC(nom:string) {
-    console.log("nom -->"+nom);
+  searchPC(
+    nom: string,
+    typePC: string,
+    cpu: string,
+    gpu: string,
+    ramMin: number,
+    romMin: number,
+    prixMax: number
+  ) {
+    console.log("nom --> " + nom);
+
     let lstPc = this.db.searchPc({
-      prixMax: -1,
-      type: '',
-      ramMin: -1,
-      hddCapaMin: -1,
+      prixMax: prixMax,
+      type: typePC,
+      ramMin: ramMin,
+      hddCapaMin: romMin,
       nomPc: nom,
-      marqueCPU: '',
-      marqueGPU: ''
+      marqueCPU: cpu,
+      marqueGPU: gpu
     });
 
     this.lstNomPc = [];
+
     for (let index = 0; index < lstPc.length; index++) {
       this.lstNomPc.push(lstPc[index].nom);
     }

@@ -29,7 +29,7 @@ export class FiltresComponent {
     this.prixMax = +(localStorage.getItem('prixMax') ?? 5000);
   }
 
-  // 🔥 UNE SEULE FONCTION POUR RAM / ROM / PRIX
+  // UNE SEULE FONCTION POUR RAM / ROM / PRIX
   updateRangeFilter(field: 'ramMin' | 'romMin' | 'prixMax', value: number) {
     (this as any)[field] = value;
     localStorage.setItem(field, value.toString());
@@ -46,6 +46,16 @@ export class FiltresComponent {
   }
 
   allerRecherche() {
-    this.router.navigate(['/recherche']);
+    this.router.navigate(['/recherche'], {
+      queryParams: {
+        q: '',
+        typePC: this.typePC,
+        cpu: this.cpu,
+        gpu: this.gpu,
+        ramMin: this.ramMin,
+        romMin: this.romMin,
+        prixMax: this.prixMax
+      }
+    });
   }
 }

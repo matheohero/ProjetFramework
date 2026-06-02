@@ -49,7 +49,18 @@ export class HeaderComponent implements OnInit {
     this.menuOpen = !this.menuOpen;
 
     if (this.menuOpen && this.router.url !== '/recherche') {
-      this.router.navigate(['/recherche']);
+
+      this.router.navigate(['/recherche'], {
+        queryParams: {
+          typePC: localStorage.getItem('typePC') ?? '',
+          cpu: localStorage.getItem('cpu') ?? '',
+          gpu: localStorage.getItem('gpu') ?? '',
+          ramMin: +(localStorage.getItem('ramMin') ?? 32),
+          romMin: +(localStorage.getItem('romMin') ?? 3840),
+          prixMax: +(localStorage.getItem('prixMax') ?? 5000)
+        }
+      });
+
     }
   }
 
