@@ -1,4 +1,8 @@
 <app-header (searchEvent)="searchPC($event)"></app-header>
-<div *ngFor="let pc of lstNomPc">
-<app-produit nom={{pc}}></app-produit>
+
+<div class="grid-container">
+  <app-produit
+    *ngFor="let pc of lstNomPc"
+    [nom]="pc">
+  </app-produit>
 </div>
