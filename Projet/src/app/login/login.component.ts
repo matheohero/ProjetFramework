@@ -34,4 +34,8 @@ username: string = '';
 
     this.router.navigate(['/']);
   }
+
+  goToRegister() {
+    this.router.navigate(['/cree-compte']);
+  }
 }
