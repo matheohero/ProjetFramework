@@ -159,8 +159,8 @@ export class QuestionsComponent implements OnInit {
       type: 'budget',
       options: [
         { label: 'Moins de 500 €', value: 'low' },
-        { label: '500 € – 900 €', value: 'mid' },
-        { label: '900 € – 1 500 €', value: 'high' },
+        { label: 'Moins de 900 €', value: 'mid' },
+        { label: 'Moins de 1 500 €', value: 'high' },
         { label: 'Plus de 1 500 €', value: 'premium' },
       ],
       choiceNext: {
