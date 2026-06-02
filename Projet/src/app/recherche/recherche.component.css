@@ -1,5 +1,55 @@
+:host {
+    display: block;
+
+    min-height: 100vh;
+
+    background: #0f172a;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+}
+
+/* Grille des produits */
+
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+/* Animation d'apparition */
+
+.grid-container app-produit {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Message si aucun résultat */
+
+.no-result {
+    text-align: center;
+
+    color: #60a5fa;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    margin-top: 50px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
