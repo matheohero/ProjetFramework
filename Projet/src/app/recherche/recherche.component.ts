@@ -20,6 +20,8 @@ export class RechercheComponent {
       const nom = params['q'];
       if (nom) {
         this.searchPC(nom);
+      } else {
+        this.searchPC("");
       }
     });
   }
