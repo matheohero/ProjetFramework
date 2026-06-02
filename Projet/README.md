@@ -6,7 +6,7 @@
 - Questions                     en cour
 - Recherche                     en cour
 - Présentation produit          Créé
-- Favoris                       Créé
+- Favoris                       Fait
 - Historique de recherche       Créé
 - Création de compte            Fait
 - Login                         Fait

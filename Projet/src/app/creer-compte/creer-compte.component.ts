@@ -41,6 +41,7 @@ export class CreerCompteComponent {
 
     this.db.createUser(this.username, this.password);
 
+    localStorage.setItem('currentUser', this.username);
     this.successMessage = 'Compte créé avec succès !';
 
     this.router.navigate(['/']);
