@@ -1,3 +1,33 @@
 <app-header></app-header>
 
+<div class="container">
+
+  <h2>Historique des recherches</h2>
+
+  <button class="clear" (click)="clearHistorique()">
+    Vider l'historique
+  </button>
+
+  <p *ngIf="historique.length === 0">
+    Aucun historique.
+  </p>
+
+  <div class="list">
+
+    <div class="item" *ngFor="let item of historique; let i = index">
+
+      <div>
+        <strong>Recherche :</strong> {{ item }}
+      </div>
+
+      <button (click)="removeItem(i)">
+        Supprimer
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
 <app-footer></app-footer>
