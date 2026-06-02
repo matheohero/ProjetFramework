@@ -38,9 +38,17 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearch(): void {
-      this.router.navigate(['/recherche'], {
-        queryParams: { q: this.query.trim() }
-      });
+    this.router.navigate(['/recherche'], {
+      queryParams: {
+        q: this.query.trim(),
+        typePC: localStorage.getItem('typePC') ?? '',
+        cpu: localStorage.getItem('cpu') ?? '',
+        gpu: localStorage.getItem('gpu') ?? '',
+        ramMin: +(localStorage.getItem('ramMin') ?? 32),
+        romMin: +(localStorage.getItem('romMin') ?? 3840),
+        prixMax: +(localStorage.getItem('prixMax') ?? 5000)
+      }
+    });
   }
 
   toggleMenu(): void {
@@ -65,11 +73,9 @@ export class HeaderComponent implements OnInit {
   showFiltersButton(): boolean {
     return this.router.url !== '/questions';
   }
-
   showLogoutButton() {
     return this.router.url != "/historique";
   }
-
   logoutFunc() {
     localStorage.removeItem('currentUser');
     this.router.navigate(['/login']);

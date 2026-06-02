@@ -11,8 +11,8 @@ export class FiltresComponent {
 
   constructor(private router: Router) {}
 
-  ramMin: number = 32;
-  romMin: number = 3840;
+  ramMin: number = 0;
+  romMin: number = 0;
   prixMax: number = 5000;
 
   typePC: string = '';
@@ -49,6 +49,19 @@ export class FiltresComponent {
     this.router.navigate(['/recherche'], {
       queryParams: {
         q: '',
+        typePC: this.typePC,
+        cpu: this.cpu,
+        gpu: this.gpu,
+        ramMin: this.ramMin,
+        romMin: this.romMin,
+        prixMax: this.prixMax
+      }
+    });
+  }
+  
+  appliquerFiltres() {
+    this.router.navigate(['/recherche'], {
+      queryParams: {
         typePC: this.typePC,
         cpu: this.cpu,
         gpu: this.gpu,

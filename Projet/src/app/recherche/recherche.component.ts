@@ -41,8 +41,15 @@ export class RechercheComponent {
     romMin: number,
     prixMax: number
   ) {
-    console.log("nom --> " + nom);
-
+    console.log(
+      nom,
+      typePC,
+      cpu,
+      gpu,
+      ramMin,
+      romMin,
+      prixMax
+    );
     let lstPc = this.db.searchPc({
       prixMax: prixMax,
       type: typePC,
@@ -58,5 +65,6 @@ export class RechercheComponent {
     for (let index = 0; index < lstPc.length; index++) {
       this.lstNomPc.push(lstPc[index].nom);
     }
+
   }
 }
