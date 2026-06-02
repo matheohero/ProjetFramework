@@ -13,11 +13,13 @@ export class TestBackEndComponent {
 
   test() {
     let filters: Filtre = {
-      prixMax: 800,//800
-      type: 'portable',//portable
+      prixMax: 800, //800
+      type: 'portable', //portable
       ramMin: 8, //8
       hddCapaMin: 1024,
-      nomPc: "Vi"
+      nomPc: "Vi",
+      marqueCPU: '',
+      marqueGPU: ''
     };
     //console.log(this.db.getAllpc());
     console.log(this.db.searchPc(filters));

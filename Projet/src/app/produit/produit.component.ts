@@ -16,7 +16,9 @@ export class ProduitComponent implements OnInit{
       type: '',
       ramMin: -1,
       hddCapaMin: -1,
-      nomPc: this.nom
+      nomPc: this.nom,
+      marqueCPU: '',
+      marqueGPU: ''
     })[0].prix;
   }
 

@@ -31,7 +31,9 @@ export class RechercheComponent {
       type: '',
       ramMin: -1,
       hddCapaMin: -1,
-      nomPc: nom
+      nomPc: nom,
+      marqueCPU: '',
+      marqueGPU: ''
     });
 
     this.lstNomPc = [];

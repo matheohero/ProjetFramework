@@ -7,9 +7,11 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class DataBaseService {
   private LOCAL_STORAGE = "users";
+  private HOSTO_SAVE_COUNT = 10;
 
   lstPc:any;
   lstUser:Array<Profil> = [];
+  Histo:Array<Filtre> = [];
 
   constructor() { 
     this.lstPc = pc;
@@ -38,6 +40,14 @@ export class DataBaseService {
     }
     if (filtres.type != "") {
       lstPcFiltree = lstPcFiltree.filter((pc: { type: string; }) => filtres.type == pc.type);
+    }
+    if (filtres.marqueCPU != "") {
+      lstPcFiltree = lstPcFiltree.filter((pc: { [x: string]: { [x: string]: { marque: string; }; }; } ) => 
+        filtres.marqueCPU == pc["system"]["cpu"].marque);
+    }
+    if (filtres.marqueGPU != "") {
+      lstPcFiltree = lstPcFiltree.filter((pc: { [x: string]: { [x: string]: { marque: string; }; }; } ) => 
+        filtres.marqueGPU == pc["system"]["cg"].marque);
     }
 
     return lstPcFiltree;
@@ -97,8 +107,12 @@ export class DataBaseService {
     if (!user.favory.includes(pc)) { 
       user.favory.push(pc);
     }
-    
+
     localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
+  }
+
+  addToHisto(filtre:Filtre) {
+
   }
 
 }
@@ -108,7 +122,9 @@ export interface Filtre {
   type : string,
   ramMin : number,
   hddCapaMin : number,
-  nomPc : string
+  nomPc : string,
+  marqueCPU : string,
+  marqueGPU : string
 }
 
 export interface Profil {
