@@ -175,3 +175,7 @@ h1 {
 .avatar:hover {
     border-color: #2563eb;
 }
+
+a {
+  text-decoration: none;
+}
