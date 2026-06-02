@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class FiltresComponent {
 
-  prixMax: number = 2500;
+  ramMin: number = 0;
+  romMin: number = 0;
+  prixMax: number = 5000;
 
 }

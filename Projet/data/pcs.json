@@ -8,7 +8,7 @@
         "system": {
             "ram": 32,
             "cpu": {
-                "marque":"INTELLE",
+                "marque":"INTEL",
                 "nom": "X9 900",
                 "score": 25000,
                 "core": 2,
@@ -39,7 +39,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"INTELLE",
+                "marque":"INTEL",
                 "nom": "X3 300",
                 "score": 12000,
                 "core": 2,
@@ -70,7 +70,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"AMDé",
+                "marque":"AMD",
                 "nom": "B5 5000",
                 "score": 15000,
                 "core": 6,
@@ -110,7 +110,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"AMDé",
+                "marque":"AMD",
                 "nom": "B5 550",
                 "score": 12000,
                 "core": 6,
@@ -153,7 +153,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"AMDé",
+                "marque":"AMD",
                 "nom": "B5 550",
                 "score": 12000,
                 "core": 6,
@@ -196,7 +196,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"AMDé",
+                "marque":"AMD",
                 "nom": "B3 500",
                 "score": 7000,
                 "core": 4,
@@ -239,7 +239,7 @@
         "system": {
             "ram": 32,
             "cpu": {
-                "marque":"AMDé",
+                "marque":"AMD",
                 "nom": "B9 5000",
                 "score": 20000,
                 "core": 10,
@@ -282,7 +282,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"AMDé",
+                "marque":"AMD",
                 "nom": "B7 5000",
                 "score": 17000,
                 "core": 8,
@@ -325,7 +325,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"INTELLE",
+                "marque":"INTEL",
                 "nom": "X7 770Y",
                 "score": 7500,
                 "core": 4,
@@ -339,7 +339,7 @@
                 "vitesse-transfert": 3000
             },
             "cg": {
-                "marque": "INTELLE",
+                "marque": "INTEL",
                 "modele": "HD IRIS",
                 "score": 1500
             }
@@ -368,7 +368,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"INTELLE",
+                "marque":"INTEL",
                 "nom": "X5 550Y",
                 "score": 6500,
                 "core": 4,
@@ -382,7 +382,7 @@
                 "vitesse-transfert": 3000
             },
             "cg": {
-                "marque": "INTELLE",
+                "marque": "INTEL",
                 "modele": "HD IRIS",
                 "score": 1500
             }
@@ -411,7 +411,7 @@
         "system": {
             "ram": 16,
             "cpu": {
-                "marque":"INTELLE",
+                "marque":"INTEL",
                 "nom": "X5 550",
                 "score": 7900,
                 "core": 4,
@@ -425,7 +425,7 @@
                 "vitesse-transfert": 100
             },
             "cg": {
-                "marque": "INTELLE",
+                "marque": "INTEL",
                 "modele": "HD 9000",
                 "score": 395
             }
@@ -454,7 +454,7 @@
         "system": {
             "ram": 8,
             "cpu": {
-                "marque":"INTELLE",
+                "marque":"INTEL",
                 "nom": "X3 300",
                 "score": 5200,
                 "core": 2,
@@ -468,7 +468,7 @@
                 "vitesse-transfert": 400
             },
             "cg": {
-                "marque": "INTELLE",
+                "marque": "INTEL",
                 "modele": "HD 9000",
                 "score": 395
             }
@@ -497,7 +497,7 @@
         "system": {
             "ram": 4,
             "cpu": {
-                "marque":"INTELLE",
+                "marque":"INTEL",
                 "nom": "ATAUM",
                 "score": 1250,
                 "core": 2,
@@ -511,7 +511,7 @@
                 "vitesse-transfert": 50
             },
             "cg": {
-                "marque": "INTELLE",
+                "marque": "INTEL",
                 "modele": "HD 9000",
                 "score": 395
             }
