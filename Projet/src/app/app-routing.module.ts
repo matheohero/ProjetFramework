@@ -10,6 +10,7 @@ import { BugReportComponent } from './bug-report/bug-report.component';
 import { LegalComponent } from './legal/legal.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreerCompteComponent } from './creer-compte/creer-compte.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'legal',component: LegalComponent},
   { path: 'contact',component: ContactComponent},
   { path: 'cree-compte',component: CreerCompteComponent},
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

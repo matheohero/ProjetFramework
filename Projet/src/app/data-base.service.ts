@@ -63,8 +63,12 @@ export class DataBaseService {
     return undefined;
   }
 
-  isPwdCorrect(username:string , pwd:string) {
-    
+  isPwdCorrect(username: string, pwd: string): boolean {
+    let user = this.getUser(username);
+    if (!user) {
+      return false;
+    }
+    return user.mdp === pwd;
   }
 
 

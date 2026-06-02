@@ -9,7 +9,7 @@
 - Favoris                       Créé
 - Historique de recherche       Créé
 - Création de compte            Fait
-- Login                         Créé
+- Login                         Fait
 - Bug report                    fait
 - Mentions légales              fait
 
