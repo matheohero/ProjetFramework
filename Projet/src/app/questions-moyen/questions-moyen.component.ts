@@ -88,11 +88,11 @@ export class QuestionsMoyenComponent implements OnInit {
       },
     },
 
-    // ── GPU VRAM 
+    // ── GPU VRAM questions inutiles 
     q_gpu_vram: {
       id: 'q_gpu_vram',
-      text: 'RAM minimale nécessaire ?',
-      subtitle: 'Mémoire vidéo dédiée',
+      text: 'VRAM minimale nécessaire ?',
+      subtitle: 'Mémoire RAM de la carte graphique',
       type: 'choice',
       options: [
         { label: '8 Go ', sublabel: '1080p / 1440p, jeux AAA standard', value: 'vram_8' },
@@ -113,14 +113,14 @@ export class QuestionsMoyenComponent implements OnInit {
       subtitle: 'Capacité et mode dual-channel',
       type: 'choice',
       options: [
-        { label: '16 Go DDR5 (2×8)', sublabel: 'Dual-channel, usage gaming / bureau', value: 'ram_16' },
-        { label: '32 Go DDR5 (2×16)', sublabel: 'Dual-channel, VM, compilation, créa', value: 'ram_32' },
-        { label: '64 Go DDR5 (2×32)', sublabel: 'Workstation, montage 4K, ML', value: 'ram_64' },
+        { label: '8 Go', sublabel: 'usage gaming / bureau', value: 'ram_8' },
+        { label: '16 Go', sublabel: 'VM, compilation, créa', value: 'ram_16' },
+        { label: '32 Go', sublabel: 'Workstation, montage 4K, ML', value: 'ram_32' },
       ],
       choiceNext: {
+        ram_8: 'q_storage_type',
         ram_16: 'q_storage_type',
         ram_32: 'q_storage_type',
-        ram_64: 'q_storage_type',
       },
     },
 

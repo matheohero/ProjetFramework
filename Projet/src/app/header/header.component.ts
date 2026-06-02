@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit {
   }
 
   showFiltersButton(): boolean {
-    return this.router.url !== '/questions';
+    return this.router.url !== '/questions' && this.router.url !== '/questions-moyen';
   }
   showLogoutButton() {
     return this.router.url != "/historique";
