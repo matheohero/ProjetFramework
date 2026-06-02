@@ -8,7 +8,7 @@
 - Présentation produit          Créé
 - Favoris                       Créé
 - Historique de recherche       Créé
-- Création de compte            Créé
+- Création de compte            Fait
 - Login                         Créé
 - Bug report                    fait
 - Mentions légales              fait

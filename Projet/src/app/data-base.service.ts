@@ -85,7 +85,6 @@ export class DataBaseService {
 
 }
 
-
 export interface Filtre {
   prixMax : number,
   type : string,

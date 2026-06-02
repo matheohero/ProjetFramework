@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataBaseService } from '../data-base.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creer-compte',
@@ -16,7 +17,7 @@ export class CreerCompteComponent {
   errorMessage: string = '';
   successMessage: string = '';
 
-  constructor(private db: DataBaseService) {}
+  constructor(private db: DataBaseService , private router: Router) {}
 
   register() {
 
@@ -42,9 +43,6 @@ export class CreerCompteComponent {
 
     this.successMessage = 'Compte créé avec succès !';
 
-    this.username = '';
-    this.password = '';
-    this.confirmPassword = '';
-    
+    this.router.navigate(['/']);
   }
 }
