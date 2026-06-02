@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataBaseService } from '../data-base.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recherche',
@@ -7,10 +8,21 @@ import { DataBaseService } from '../data-base.service';
   templateUrl: './recherche.component.html',
   styleUrl: './recherche.component.css'
 })
+
 export class RechercheComponent {
 
   db: DataBaseService = new DataBaseService();  
   lstNomPc: string[] = [];
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const nom = params['q'];
+      if (nom) {
+        this.searchPC(nom);
+      }
+    });
+  }
 
   searchPC(nom:string) {
     console.log("nom -->"+nom);
@@ -25,6 +37,5 @@ export class RechercheComponent {
     for (let index = 0; index < lstPc.length; index++) {
       this.lstNomPc.push(lstPc[index].nom);
     }
-
   }
 }

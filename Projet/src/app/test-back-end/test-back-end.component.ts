@@ -19,8 +19,6 @@ export class TestBackEndComponent {
       hddCapaMin: 1024,
       nomPc: "Vi"
     };
-
-
     //console.log(this.db.getAllpc());
     console.log(this.db.searchPc(filters));
 
