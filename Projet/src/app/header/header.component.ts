@@ -47,6 +47,10 @@ export class HeaderComponent implements OnInit {
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+
+    if (this.menuOpen && this.router.url !== '/recherche') {
+      this.router.navigate(['/recherche']);
+    }
   }
 
   showFiltersButton(): boolean {
