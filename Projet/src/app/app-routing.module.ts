@@ -4,6 +4,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TestBackEndComponent } from './test-back-end/test-back-end.component';
 import { RechercheComponent } from './recherche/recherche.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { QuestionsMoyenComponent } from './questions-moyen/questions-moyen.component';
 import { FavorisComponent } from './favoris/favoris.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'recherche' , component: RechercheComponent},
   { path: 'test', component: TestBackEndComponent },
   { path: 'questions', component: QuestionsComponent },
+  { path: 'questions-moyen', component: QuestionsMoyenComponent },
   { path: 'favoris',component: FavorisComponent , canActivate: [authGuard]},
   { path: 'historique',component: HistoriqueComponent , canActivate: [authGuard]},
   { path: 'bug-report',component: BugReportComponent},

@@ -1,0 +1,112 @@
+<!-- questions-moyen.component.html -->
+<div class="advisor-shell">
+
+  <!-- Animated background grid -->
+  <div class="bg-grid" aria-hidden="true">
+    <div class="bg-glow"></div>
+  </div>
+
+  <div class="advisor-card">
+
+    <!-- Header -->
+    <header class="advisor-header">
+      <div class="header-badge">
+        <span class="badge-dot"></span>
+        <span>Configurateur avancé</span>
+      </div>
+      <h1 class="advisor-title">Définissez vos<br><em>specs techniques</em></h1>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="progress-track" *ngIf="!finished">
+      <div class="progress-fill" [style.width.%]="progressPercent"></div>
+      <span class="progress-label">{{ progressPercent }}%</span>
+    </div>
+
+    <!-- ── QUESTION / RECOMMENDATION FLOW ── -->
+    <main class="advisor-main" *ngIf="!finished">
+
+      <!-- History (previous answers) -->
+      <ul class="history-list" *ngIf="history.length > 0">
+        <li *ngFor="let entry of history" class="history-item">
+          <span class="history-q">{{ entry.questionText }}</span>
+          <span class="history-a">
+            <i class="answer-icon">{{ getAnswerIcon(entry.answer) }}</i>
+            {{ entry.answer }}
+          </span>
+        </li>
+      </ul>
+
+      <!-- Active card -->
+      <div class="question-card" [class.is-recommendation]="currentQuestion.isRecommendation">
+
+        <!-- Recommendation state -->
+        <ng-container *ngIf="currentQuestion.isRecommendation">
+          <div class="rec-icon" aria-hidden="true">✦</div>
+          <p class="rec-text">{{ currentQuestion.recommendationText }}</p>
+          <button class="btn btn-primary" (click)="proceedFromRecommendation()">
+            Continuer
+            <span class="btn-arrow">→</span>
+          </button>
+        </ng-container>
+
+        <!-- Yes / No question -->
+        <ng-container *ngIf="!currentQuestion.isRecommendation && currentQuestion.type === 'yesno'">
+          <p class="question-subtitle" *ngIf="currentQuestion.subtitle">{{ currentQuestion.subtitle }}</p>
+          <p class="question-text">{{ currentQuestion.text }}</p>
+          <div class="btn-row">
+            <button class="btn btn-yes" (click)="answerYesNo('yes')">
+              <span class="btn-icon">✓</span> Oui
+            </button>
+            <button class="btn btn-no" (click)="answerYesNo('no')">
+              <span class="btn-icon">✗</span> Non
+            </button>
+          </div>
+        </ng-container>
+
+        <!-- Choice question -->
+        <ng-container *ngIf="!currentQuestion.isRecommendation && currentQuestion.type === 'choice'">
+          <p class="question-subtitle" *ngIf="currentQuestion.subtitle">{{ currentQuestion.subtitle }}</p>
+          <p class="question-text">{{ currentQuestion.text }}</p>
+          <div class="choice-grid">
+            <button
+              *ngFor="let opt of currentQuestion.options"
+              class="btn btn-choice"
+              (click)="answerChoice(opt.value, opt.label)"
+            >
+              <span class="choice-main">{{ opt.label }}</span>
+              <span class="choice-sub" *ngIf="opt.sublabel">{{ opt.sublabel }}</span>
+            </button>
+          </div>
+        </ng-container>
+
+      </div>
+    </main>
+
+    <!-- ── SUMMARY SCREEN ── -->
+    <section class="summary-screen" *ngIf="finished">
+      <div class="summary-header">
+        <span class="summary-icon">✦</span>
+        <h2>Votre profil<br><em>est prêt</em></h2>
+      </div>
+
+      <ul class="summary-list">
+        <li *ngFor="let entry of history; let i = index" class="summary-item">
+          <span class="summary-num">{{ i + 1 }}</span>
+          <span class="summary-content">
+            <span class="summary-q">{{ entry.questionText }}</span>
+            <span class="summary-a">{{ entry.answer }}</span>
+          </span>
+        </li>
+      </ul>
+
+      <div class="summary-footer">
+        <button class="btn btn-primary" (click)="lancerRecherche()">
+          Lancer la recherche
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+  </div>
+</div>

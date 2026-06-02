@@ -20,6 +20,7 @@ import { LegalComponent } from './legal/legal.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
+import { QuestionsMoyenComponent } from './questions-moyen/questions-moyen.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
     FooterComponent,
     ContactComponent,
     DetailProduitComponent,
+    QuestionsMoyenComponent,
   ],
   imports: [
     BrowserModule,
