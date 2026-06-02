@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="container" *ngIf="pc; else notFound">
+
+  <h1>{{ pc.nom }}</h1>
+  <h3>{{ pc.marque }}</h3>
+
+  <p><strong>Type :</strong> {{ pc.type }}</p>
+  <p><strong>Prix :</strong> {{ pc.prix }} €</p>
+
+  <hr>
+
+  <h2>Système</h2>
+
+  <p><strong>RAM :</strong> {{ pc.system.ram }} Go</p>
+
+  <p><strong>CPU :</strong> {{ pc.system.cpu.marque }} - {{ pc.system.cpu.nom }}</p>
+  <p>Score : {{ pc.system.cpu.score }}</p>
+  <p>Cœurs : {{ pc.system.cpu.core }}</p>
+  <p>Fréquence max : {{ pc.system.cpu["frequence-max"] }} MHz</p>
+
+  <h2>Stockage</h2>
+
+  <p><strong>Capacité :</strong> {{ pc.system.hdd.capacite }} Go</p>
+  <p><strong>Type :</strong> {{ pc.system.hdd.type }}</p>
+  <p>Vitesse : {{ pc.system.hdd["vitesse-transfert"] }} MB/s</p>
+
+  <h2>Carte graphique</h2>
+
+  <p>{{ pc.system.cg.marque }} - {{ pc.system.cg.modele }}</p>
+  <p>Score : {{ pc.system.cg.score }}</p>
+
+  <h2>Écran</h2>
+  <p *ngIf="pc.ecran">Oui</p>
+  <p *ngIf="!pc.ecran">Non</p>
+
+  <h2>Clavier</h2>
+  <p *ngIf="pc.clavier">Oui</p>
+  <p *ngIf="!pc.clavier">Non</p>
+
+</div>
+
+<ng-template #notFound>
+  <h2>PC introuvable</h2>
+</ng-template>
+
+<app-footer></app-footer>

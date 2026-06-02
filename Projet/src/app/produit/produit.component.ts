@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DataBaseService, Filtre } from '../data-base.service';
+import { DataBaseService } from '../data-base.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produit',
@@ -9,6 +10,7 @@ import { DataBaseService, Filtre } from '../data-base.service';
 })
 export class ProduitComponent implements OnInit{
 
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.prix = this.db.searchPc({
@@ -40,6 +42,5 @@ export class ProduitComponent implements OnInit{
     }
     this.db.addFavorite(user,this.nom);
   }
-
   
 }

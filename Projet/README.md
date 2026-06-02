@@ -7,7 +7,7 @@
 - Recherche                     en cour
 - Présentation produit          Créé
 - Favoris                       Fait
-- Historique de recherche       Créé
+- Historique de recherche       en cour
 - Création de compte            Fait
 - Login                         Fait
 - Bug report                    fait

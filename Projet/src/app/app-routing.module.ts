@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CreerCompteComponent } from './creer-compte/creer-compte.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from './guards/auth.guard';
+import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'contact',component: ContactComponent},
   { path: 'cree-compte',component: CreerCompteComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'detail-produit/:nom', component: DetailProduitComponent}
 ];
 
 @NgModule({
