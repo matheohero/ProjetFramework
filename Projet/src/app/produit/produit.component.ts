@@ -13,15 +13,7 @@ export class ProduitComponent implements OnInit{
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.prix = this.db.searchPc({
-      prixMax: -1,
-      type: '',
-      ramMin: -1,
-      hddCapaMin: -1,
-      nomPc: this.nom,
-      marqueCPU: '',
-      marqueGPU: ''
-    })[0].prix;
+    this.prix = this.db.searchPcByName(this.nom).prix;
   }
 
   db: DataBaseService = new DataBaseService();
