@@ -28,23 +28,30 @@
         </label>
     </div>
 
+    <!-- 🔥 MEMOIRE = RAM + ROM -->
     <div class="filtre-item">
         <h3>Mémoire</h3>
 
-        <label>
-            <input type="checkbox">
-            8 Go
-        </label>
+        <!-- RAM -->
+        <label>RAM</label>
+        <input
+            type="range"
+            min="0"
+            max="32"
+            step="1"
+            [(ngModel)]="ramMin">
+        <span>{{ ramMin }} Go</span>
 
-        <label>
-            <input type="checkbox">
-            16 Go
-        </label>
+        <!-- ROM -->
+        <label style="margin-top:10px;">Stockage</label>
+        <input
+            type="range"
+            min="0"
+            max="3840"
+            step="10"
+            [(ngModel)]="romMin">
+        <span>{{ romMin }} Go</span>
 
-        <label>
-            <input type="checkbox">
-            32 Go
-        </label>
     </div>
 
     <div class="filtre-item">
@@ -57,7 +64,7 @@
 
         <label>
             <input type="checkbox">
-            AMD Radeon
+            INTEL
         </label>
     </div>
 
