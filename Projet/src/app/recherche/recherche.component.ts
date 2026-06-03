@@ -13,6 +13,7 @@ export class RechercheComponent {
 
   db: DataBaseService = new DataBaseService();  
   lstNomPc: string[] = [];
+  aucunResultat: boolean = false;
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -69,6 +70,8 @@ export class RechercheComponent {
     for (let index = 0; index < lstPc.length; index++) {
       this.lstNomPc.push(lstPc[index].nom);
     }
+
+    this.aucunResultat = this.lstNomPc.length === 0;
 
   }
 }

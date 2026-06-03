@@ -1,6 +1,9 @@
 <!-- <app-header (searchEvent)="searchPC($event)"></app-header> -->
 
 <div class="grid-container">
+  <p class="no-result" *ngIf="aucunResultat">
+    Aucun PC ne correspond à votre recherche.
+  </p>
   <app-produit
     *ngFor="let pc of lstNomPc"
     [nom]="pc"
