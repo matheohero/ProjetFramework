@@ -110,14 +110,14 @@ export class DataBaseService {
     localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
   }
 
-addToHisto(filtre: Filtre) {
+addToHisto(filtre: Filtre, nbResultats: number) {
   let username = localStorage.getItem("currentUser");
   if (username == undefined) return;
 
   let user = this.getUser(username);
   if (user == undefined) return;
 
-  let dejaPresent = user.historique.some((h: Filtre) => 
+  const dejaPresent = user.historique.some((h: any) => 
     h.nomPc      === filtre.nomPc      &&
     h.type       === filtre.type       &&
     h.prixMax    === filtre.prixMax    &&
@@ -132,7 +132,8 @@ addToHisto(filtre: Filtre) {
   if (user.historique.length >= this.HISTO_SAVE_COUNT) {
     user.historique = user.historique.slice(1);
   }
-  user.historique.push(filtre);
+
+  user.historique.push({ ...filtre, nbResultats });
 
   localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
   }

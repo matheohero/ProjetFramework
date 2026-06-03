@@ -60,9 +60,9 @@ export class RechercheComponent {
       marqueGPU: gpu
     };
 
-    this.db.addToHisto(filter);
-
     let lstPc = this.db.searchPc(filter);
+
+    this.db.addToHisto(filter, lstPc.length);
 
     this.lstNomPc = [];
 

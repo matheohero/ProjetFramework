@@ -125,3 +125,14 @@ p {
   background-color: #ff4d4d;
   color: white;
 }
+
+.badge {
+  display: inline-block;
+  background-color: #4da6ff22;
+  color: #4da6ff;
+  border: 1px solid #4da6ff55;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
