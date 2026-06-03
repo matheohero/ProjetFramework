@@ -110,24 +110,32 @@ export class DataBaseService {
     localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
   }
 
-  addToHisto(filtre:Filtre) {
+addToHisto(filtre: Filtre) {
+  let username = localStorage.getItem("currentUser");
+  if (username == undefined) return;
 
-    let username = localStorage.getItem("currentUser");
+  let user = this.getUser(username);
+  if (user == undefined) return;
 
-    if (username == undefined) return;
+  let dejaPresent = user.historique.some((h: Filtre) => 
+    h.nomPc      === filtre.nomPc      &&
+    h.type       === filtre.type       &&
+    h.prixMax    === filtre.prixMax    &&
+    h.ramMin     === filtre.ramMin     &&
+    h.hddCapaMin === filtre.hddCapaMin &&
+    h.marqueCPU  === filtre.marqueCPU  &&
+    h.marqueGPU  === filtre.marqueGPU
+  );
 
-    let user = this.getUser(username);
+  if (dejaPresent) return;
 
-    if (user == undefined) return;
-
-    if (user.historique.length >= this.HISTO_SAVE_COUNT) {
-      user.historique = user.historique.slice(1);
-    }
-    user.historique.push(filtre);
-
-    localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser))
+  if (user.historique.length >= this.HISTO_SAVE_COUNT) {
+    user.historique = user.historique.slice(1);
   }
+  user.historique.push(filtre);
 
+  localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
+  }
 }
 
 export interface Filtre {
