@@ -1,17 +1,21 @@
 <header>
     <div class="header-left">
       <div class="logo-icon">
-        <img src="/data/Image/logo.png" alt="logo" />
+        <a href="/">
+            <img src="/data/Image/logo.png" alt="logo" />
+        </a>
     </div>
     <div class="title-block">
-        <h1>TechStore</h1>
-        <span>Informatique & High-Tech</span>
+        <a href="/">
+            <h1>TechStore</h1>
+            <span>Informatique & High-Tech</span>
+        </a>
      </div>
     </div>
    
     <div class="search-bar">
         <input type="search" [(ngModel)]="query" placeholder="Rechercher..." (keyup.enter)="onSearch()"/>
-        <button (click)="onSearch()"><span class="search-bar-icon">⌕</span></button>
+        <button (click)="onSearch()"><span class="search-bar-icon">⌕</span></button>        
     </div>
 
     <div class="header-right">
@@ -27,16 +31,19 @@
             </button>
         </div>
 
-       
-
-
         <button class="icon-btn" title="Favoris" routerLink="/favoris">
             <img src="/data/Image/favoris.png" alt="Favoris" />
         </button>
 
-        <button class="avatar" title="Historique" routerLink="/historique">
+        <button *ngIf="showLogoutButton() ; else logout" class="avatar" title="Historique" routerLink="/historique">
             <img src="/data/Image/compte.png" alt="compte" />
         </button>
+
+        <ng-template #logout>
+            <button class="avatar" (click)="logoutFunc()">
+                <img src="/data/Image/Logout.png" alt="compte" />
+            </button>            
+        </ng-template>
     </div>
 </header> 
 <app-filtres *ngIf="menuOpen"></app-filtres>

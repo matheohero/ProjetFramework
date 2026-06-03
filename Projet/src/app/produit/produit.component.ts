@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DataBaseService, Filtre } from '../data-base.service';
+import { DataBaseService } from '../data-base.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produit',
@@ -9,15 +10,10 @@ import { DataBaseService, Filtre } from '../data-base.service';
 })
 export class ProduitComponent implements OnInit{
 
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.prix = this.db.searchPc({
-      prixMax: -1,
-      type: '',
-      ramMin: -1,
-      hddCapaMin: -1,
-      nomPc: this.nom
-    })[0].prix;
+    this.prix = this.db.searchPcByName(this.nom).prix;
   }
 
   db: DataBaseService = new DataBaseService();
@@ -25,9 +21,18 @@ export class ProduitComponent implements OnInit{
   @Input()
   nom:string = "";
 
+  @Input()
+  showFavButton:boolean = false;
+
   prix:number = -1;
 
-
-
+  addToFavorite() {
+    let user = localStorage.getItem('currentUser');
+    if (user == null) {
+      alert("Il faut etre connecter pour pouvoir mettre en favoris");
+      return;
+    }
+    this.db.addFavorite(user,this.nom);
+  }
   
 }

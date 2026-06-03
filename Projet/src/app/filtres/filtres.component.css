@@ -115,3 +115,31 @@
         transform: translateY(0);
     }
 }
+
+.btn-valider {
+    margin-top: auto;
+
+    padding: 12px;
+
+    background: #2563eb;
+    color: white;
+
+    border: 1px solid #3b82f6;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.btn-valider:hover {
+    background: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.btn-valider:active {
+    transform: translateY(0);
+}

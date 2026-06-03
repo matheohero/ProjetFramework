@@ -1,0 +1,60 @@
+<div class="container" *ngIf="pc; else notFound">
+
+  <div class="header-card">
+    <h1>{{ pc.nom }}</h1>
+    <h3>{{ pc.marque }}</h3>
+
+    <div class="prix">
+      {{ pc.prix }} €
+    </div>
+
+    <div class="badges">
+      <span>{{ pc.type }}</span>
+      <span>{{ pc.system.ram }} Go RAM</span>
+      <span>{{ pc.system.hdd.capacite }} Go</span>
+    </div>
+  </div>
+
+  <div class="specs-grid">
+
+    <div class="card">
+      <h2>Système</h2>
+
+      <p><strong>RAM :</strong> {{ pc.system.ram }} Go</p>
+
+      <p><strong>CPU :</strong> {{ pc.system.cpu.marque }} - {{ pc.system.cpu.nom }}</p>
+      <p><strong>Score :</strong> {{ pc.system.cpu.score }}</p>
+      <p><strong>Cœurs :</strong> {{ pc.system.cpu.core }}</p>
+      <p><strong>Fréquence :</strong> {{ pc.system.cpu["frequence-max"] }} MHz</p>
+    </div>
+
+    <div class="card">
+      <h2>Stockage</h2>
+
+      <p><strong>Capacité :</strong> {{ pc.system.hdd.capacite }} Go</p>
+      <p><strong>Type :</strong> {{ pc.system.hdd.type }}</p>
+      <p><strong>Vitesse :</strong> {{ pc.system.hdd["vitesse-transfert"] }} MB/s</p>
+    </div>
+
+    <div class="card">
+      <h2>Carte graphique</h2>
+
+      <p><strong>Marque :</strong> {{ pc.system.cg.marque }}</p>
+      <p><strong>Modèle :</strong> {{ pc.system.cg.modele }}</p>
+      <p><strong>Score :</strong> {{ pc.system.cg.score }}</p>
+    </div>
+
+    <div class="card">
+      <h2>Périphériques</h2>
+
+      <p><strong>Écran :</strong> {{ pc.ecran ? 'Oui' : 'Non' }}</p>
+      <p><strong>Clavier :</strong> {{ pc.clavier ? 'Oui' : 'Non' }}</p>
+    </div>
+
+  </div>
+
+</div>
+
+<ng-template #notFound>
+  <h2 class="not-found">PC introuvable</h2>
+</ng-template>

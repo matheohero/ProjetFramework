@@ -1,4 +1,12 @@
-<app-header (searchEvent)="searchPC($event)"></app-header>
-<div *ngFor="let pc of lstNomPc">
-<app-produit nom={{pc}}></app-produit>
+<!-- <app-header (searchEvent)="searchPC($event)"></app-header> -->
+
+<div class="grid-container">
+  <p class="no-result" *ngIf="aucunResultat">
+    Aucun PC ne correspond à votre recherche.
+  </p>
+  <app-produit
+    *ngFor="let pc of lstNomPc"
+    [nom]="pc"
+    [showFavButton]="true">
+  </app-produit>
 </div>

@@ -1,4 +1,4 @@
-<!-- pc-advisor.component.html -->
+<!-- questions-moyen.component.html -->
 <div class="advisor-shell">
 
   <!-- Animated background grid -->
@@ -12,9 +12,9 @@
     <header class="advisor-header">
       <div class="header-badge">
         <span class="badge-dot"></span>
-        <span>Conseiller PC</span>
+        <span>Configurateur avancé</span>
       </div>
-      <h1 class="advisor-title">Trouvons votre<br><em>ordinateur idéal</em></h1>
+      <h1 class="advisor-title">Définissez vos<br><em>specs techniques</em></h1>
     </header>
 
     <!-- Progress bar -->
@@ -52,6 +52,7 @@
 
         <!-- Yes / No question -->
         <ng-container *ngIf="!currentQuestion.isRecommendation && currentQuestion.type === 'yesno'">
+          <p class="question-subtitle" *ngIf="currentQuestion.subtitle">{{ currentQuestion.subtitle }}</p>
           <p class="question-text">{{ currentQuestion.text }}</p>
           <div class="btn-row">
             <button class="btn btn-yes" (click)="answerYesNo('yes')">
@@ -63,8 +64,9 @@
           </div>
         </ng-container>
 
-        <!-- Choice / Budget question -->
-        <ng-container *ngIf="!currentQuestion.isRecommendation && (currentQuestion.type === 'choice' || currentQuestion.type === 'budget')">
+        <!-- Choice question -->
+        <ng-container *ngIf="!currentQuestion.isRecommendation && currentQuestion.type === 'choice'">
+          <p class="question-subtitle" *ngIf="currentQuestion.subtitle">{{ currentQuestion.subtitle }}</p>
           <p class="question-text">{{ currentQuestion.text }}</p>
           <div class="choice-grid">
             <button
@@ -72,7 +74,8 @@
               class="btn btn-choice"
               (click)="answerChoice(opt.value, opt.label)"
             >
-              {{ opt.label }}
+              <span class="choice-main">{{ opt.label }}</span>
+              <span class="choice-sub" *ngIf="opt.sublabel">{{ opt.sublabel }}</span>
             </button>
           </div>
         </ng-container>
@@ -88,17 +91,20 @@
       </div>
 
       <ul class="summary-list">
-        <li *ngFor="let line of getSummaryLines(); let i = index" class="summary-item">
+        <li *ngFor="let entry of history; let i = index" class="summary-item">
           <span class="summary-num">{{ i + 1 }}</span>
-          <span>{{ line }}</span>
+          <span class="summary-content">
+            <span class="summary-q">{{ entry.questionText }}</span>
+            <span class="summary-a">{{ entry.answer }}</span>
+          </span>
         </li>
       </ul>
 
       <div class="summary-footer">
-            <button class="btn btn-primary" (click)="lancerRecherche()">
-            Lancer la recherche
-            <span class="btn-arrow">→</span>
-            </button>
+        <button class="btn btn-primary" (click)="lancerRecherche()">
+          Lancer la recherche
+          <span class="btn-arrow">→</span>
+        </button>
       </div>
     </section>
 

@@ -5,11 +5,11 @@
 - Acceuil                       fait
 - Questions                     en cour
 - Recherche                     en cour
-- Présentation produit          Créé
-- Favoris                       Créé
-- Historique de recherche       Créé
-- Création de compte            Créé
-- Login                         Créé
+- Présentation produit          Fait
+- Favoris                       Fait
+- Historique de recherche       en cour
+- Création de compte            Fait
+- Login                         Fait
 - Bug report                    fait
 - Mentions légales              fait
 

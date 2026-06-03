@@ -1,8 +1,13 @@
 <div class="product-card">
-    <img src="/data/Image/pc.jpg"
+  <a href="./detail-produit/{{nom}}">
+    <img src="/data/Image/Warwick_1.jpg"
          alt="produit" />
+  </a>
     <div class="product-info">
       <span class="name">{{nom}}</span>
       <span class="price">{{prix}}€</span>
     </div>
+    <button *ngIf="showFavButton" type="button" (click)="addToFavorite()">
+        Mettre en favori
+    </button>
   </div>

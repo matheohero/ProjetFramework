@@ -7,6 +7,7 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class DataBaseService {
   private LOCAL_STORAGE = "users";
+  private HISTO_SAVE_COUNT = 10;
 
   lstPc:any;
   lstUser:Array<Profil> = [];
@@ -39,10 +40,21 @@ export class DataBaseService {
     if (filtres.type != "") {
       lstPcFiltree = lstPcFiltree.filter((pc: { type: string; }) => filtres.type == pc.type);
     }
+    if (filtres.marqueCPU != "") {
+      lstPcFiltree = lstPcFiltree.filter((pc: { [x: string]: { [x: string]: { marque: string; }; }; } ) => 
+        filtres.marqueCPU == pc["system"]["cpu"].marque);
+    }
+    if (filtres.marqueGPU != "") {
+      lstPcFiltree = lstPcFiltree.filter((pc: { [x: string]: { [x: string]: { marque: string; }; }; } ) => 
+        filtres.marqueGPU == pc["system"]["cg"].marque);
+    }
 
     return lstPcFiltree;
   }
 
+  searchPcByName(pcName : string) {
+      return this.lstPc.filter((pc: { nom: string; }) => pc.nom == pcName)[0];
+  }
   
 
   getAllUser() {
@@ -63,8 +75,12 @@ export class DataBaseService {
     return undefined;
   }
 
-  isPwdCorrect(username:string , pwd:string) {
-    
+  isPwdCorrect(username: string, pwd: string): boolean {
+    let user = this.getUser(username);
+    if (!user) {
+      return false;
+    }
+    return user.mdp === pwd;
   }
 
 
@@ -83,15 +99,67 @@ export class DataBaseService {
   }
 
 
-}
+  addFavorite(username:string , pc:string) {
+    let user = this.getUser(username);
+    if (user == undefined) return;
 
+    if (!user.favory.includes(pc)) { 
+      user.favory.push(pc);
+    }
+
+    localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
+  }
+
+addToHisto(filtre: Filtre, nbResultats: number) {
+  let username = localStorage.getItem("currentUser");
+  if (username == undefined) return;
+
+  let user = this.getUser(username);
+  if (user == undefined) return;
+
+  // Vérifie si au moins un filtre est actif
+  const sansFiltres =
+    filtre.nomPc      === "" &&
+    filtre.type       === "" &&
+    filtre.marqueCPU  === "" &&
+    filtre.marqueGPU  === "" &&
+    filtre.prixMax    === -1 &&
+    filtre.ramMin     === -1 &&
+    filtre.hddCapaMin === -1;
+
+  if (sansFiltres) return;
+
+  // Vérifie les doublons
+  const dejaPresent = user.historique.some((h: any) =>
+    h.nomPc      === filtre.nomPc      &&
+    h.type       === filtre.type       &&
+    h.prixMax    === filtre.prixMax    &&
+    h.ramMin     === filtre.ramMin     &&
+    h.hddCapaMin === filtre.hddCapaMin &&
+    h.marqueCPU  === filtre.marqueCPU  &&
+    h.marqueGPU  === filtre.marqueGPU
+  );
+
+  if (dejaPresent) return;
+
+  if (user.historique.length >= this.HISTO_SAVE_COUNT) {
+    user.historique = user.historique.slice(1);
+  }
+
+  user.historique.push({ ...filtre, nbResultats });
+
+  localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
+  }
+}
 
 export interface Filtre {
   prixMax : number,
   type : string,
   ramMin : number,
   hddCapaMin : number,
-  nomPc : string
+  nomPc : string,
+  marqueCPU : string,
+  marqueGPU : string
 }
 
 export interface Profil {
