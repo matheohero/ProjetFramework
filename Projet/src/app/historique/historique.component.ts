@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { DataBaseService, Profil } from '../data-base.service';
+import { DataBaseService, Filtre, Profil } from '../data-base.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-historique',
@@ -8,10 +9,10 @@ import { DataBaseService, Profil } from '../data-base.service';
   styleUrl: './historique.component.css'
 })
 export class HistoriqueComponent {
- historique: any[] = [];
+  historique: any[] = [];
   user?: Profil;
 
-  constructor(private db: DataBaseService) {}
+  constructor(private db: DataBaseService ,  private router: Router) {}
 
   ngOnInit(): void {
 
@@ -25,6 +26,21 @@ export class HistoriqueComponent {
       this.historique = this.user.historique || [];
     }
   }
+
+  relancerRecherche(item: Filtre): void {
+    this.router.navigate(['/recherche'], {
+      queryParams: {
+        q:       item.nomPc      || undefined,
+        typePC:  item.type       || undefined,
+        cpu:     item.marqueCPU  || undefined,
+        gpu:     item.marqueGPU  || undefined,
+        ramMin:  item.ramMin    !== -1 ? item.ramMin    : undefined,
+        romMin:  item.hddCapaMin !== -1 ? item.hddCapaMin : undefined,
+        prixMax: item.prixMax   !== -1 ? item.prixMax   : undefined,
+      }
+    });
+  }
+
 
   clearHistorique() {
 

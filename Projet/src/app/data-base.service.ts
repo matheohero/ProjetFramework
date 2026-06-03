@@ -11,7 +11,6 @@ export class DataBaseService {
 
   lstPc:any;
   lstUser:Array<Profil> = [];
-  histo:Array<Filtre> = [];
 
   constructor() { 
     this.lstPc = pc;
@@ -111,16 +110,46 @@ export class DataBaseService {
     localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
   }
 
-  addToHisto(filtre:Filtre) {
+addToHisto(filtre: Filtre, nbResultats: number) {
+  let username = localStorage.getItem("currentUser");
+  if (username == undefined) return;
 
-    if (this.histo.length >= this.HISTO_SAVE_COUNT) {
-      this.histo = this.histo.slice(1);
-    }
-    this.histo.push(filtre);
+  let user = this.getUser(username);
+  if (user == undefined) return;
 
-    localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.histo))
+  // Vérifie si au moins un filtre est actif
+  const sansFiltres =
+    filtre.nomPc      === "" &&
+    filtre.type       === "" &&
+    filtre.marqueCPU  === "" &&
+    filtre.marqueGPU  === "" &&
+    filtre.prixMax    === -1 &&
+    filtre.ramMin     === -1 &&
+    filtre.hddCapaMin === -1;
+
+  if (sansFiltres) return;
+
+  // Vérifie les doublons
+  const dejaPresent = user.historique.some((h: any) =>
+    h.nomPc      === filtre.nomPc      &&
+    h.type       === filtre.type       &&
+    h.prixMax    === filtre.prixMax    &&
+    h.ramMin     === filtre.ramMin     &&
+    h.hddCapaMin === filtre.hddCapaMin &&
+    h.marqueCPU  === filtre.marqueCPU  &&
+    h.marqueGPU  === filtre.marqueGPU
+  );
+
+  if (dejaPresent) return;
+
+  if (user.historique.length >= this.HISTO_SAVE_COUNT) {
+    user.historique = user.historique.slice(1);
   }
 
+  user.historique.push({ ...filtre, nbResultats });
+
+  localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser));
+  }
 }
 
 export interface Filtre {

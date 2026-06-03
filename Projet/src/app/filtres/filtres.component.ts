@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PcProfile } from '../questions/questions.component';
+import { DataBaseService } from '../data-base.service';
 
 @Component({
   selector: 'app-filtres',
@@ -57,6 +58,7 @@ export class FiltresComponent {
 
   allerRecherche() {
     localStorage.setItem('pcProfileApplied', 'true');
+
     this.router.navigate(['/recherche'], {
       queryParams: {
         q: '',

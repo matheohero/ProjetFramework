@@ -1,32 +1,138 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #0d1b2a;
+}
+
 .container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  padding: 40px 60px;
+  color: white;
+  min-height: 100vh;
+  background-color: #0d1b2a;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  color: #4da6ff;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #4da6ff, transparent);
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+p {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
 }
 
 .clear {
   display: block;
-  margin: 0 auto 20px;
-  padding: 10px;
+  margin: 0 auto 30px auto;
+  padding: 10px 24px;
+  background-color: transparent;
+  color: #ff4d4d;
+  border: 2px solid #ff4d4d;
+  border-radius: 8px;
+  font-size: 0.95rem;
   cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.clear:hover {
+  background-color: #ff4d4d;
+  color: white;
 }
 
 .list {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .item {
+  background-color: #132236;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 18px 22px;
+  width: 280px;
   display: flex;
-  justify-content: space-between;
-  padding: 12px;
-  background: white;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.item:hover {
+  border-color: #4da6ff;
+  box-shadow: 0 0 12px rgba(77, 166, 255, 0.2);
+}
+
+.item > div strong {
+  color: #4da6ff;
+  margin-right: 4px;
+}
+
+.item > div {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #cdd8e3;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 9px 0;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.actions button:first-child {
+  background-color: #4da6ff;
+  color: white;
+  border: none;
+}
+
+.actions button:first-child:hover {
+  background-color: #2e8fe0;
+}
+
+.actions button:last-child {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #ff4d4d;
+}
+
+.actions button:last-child:hover {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #4da6ff22;
+  color: #4da6ff;
+  border: 1px solid #4da6ff55;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  margin-top: 4px;
 }

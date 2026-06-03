@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataBaseService } from '../data-base.service';
+import { DataBaseService, Filtre } from '../data-base.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,6 +13,7 @@ export class RechercheComponent {
 
   db: DataBaseService = new DataBaseService();  
   lstNomPc: string[] = [];
+  aucunResultat: boolean = false;
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -50,7 +51,7 @@ export class RechercheComponent {
       romMin,
       prixMax
     );
-    let lstPc = this.db.searchPc({
+    let filter:Filtre = {
       prixMax: prixMax,
       type: typePC,
       ramMin: ramMin,
@@ -58,13 +59,19 @@ export class RechercheComponent {
       nomPc: nom,
       marqueCPU: cpu,
       marqueGPU: gpu
-    });
+    };
+
+    let lstPc = this.db.searchPc(filter);
+
+    this.db.addToHisto(filter, lstPc.length);
 
     this.lstNomPc = [];
 
     for (let index = 0; index < lstPc.length; index++) {
       this.lstNomPc.push(lstPc[index].nom);
     }
+
+    this.aucunResultat = this.lstNomPc.length === 0;
 
   }
 }

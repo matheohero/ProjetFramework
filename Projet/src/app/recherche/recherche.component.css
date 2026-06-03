@@ -51,3 +51,11 @@
         transform: translateY(0);
     }
 }
+
+.no-result {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+  margin-top: 40px;
+  font-size: 1.1rem;
+}
