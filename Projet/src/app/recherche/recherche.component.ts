@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataBaseService } from '../data-base.service';
+import { DataBaseService, Filtre } from '../data-base.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -50,7 +50,7 @@ export class RechercheComponent {
       romMin,
       prixMax
     );
-    let lstPc = this.db.searchPc({
+    let filter:Filtre = {
       prixMax: prixMax,
       type: typePC,
       ramMin: ramMin,
@@ -58,7 +58,11 @@ export class RechercheComponent {
       nomPc: nom,
       marqueCPU: cpu,
       marqueGPU: gpu
-    });
+    };
+
+    this.db.addToHisto(filter);
+
+    let lstPc = this.db.searchPc(filter);
 
     this.lstNomPc = [];
 

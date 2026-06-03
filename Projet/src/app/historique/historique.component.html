@@ -15,12 +15,35 @@
     <div class="item" *ngFor="let item of historique; let i = index">
 
       <div>
-        <strong>Recherche :</strong> {{ item }}
+        <ng-container *ngIf="item.nomPc">
+          <strong>Nom :</strong> {{ item.nomPc }}<br>
+        </ng-container>
+        <ng-container *ngIf="item.type">
+          <strong>Type :</strong> {{ item.type }}<br>
+        </ng-container>
+        <ng-container *ngIf="item.prixMax !== -1">
+          <strong>Prix max :</strong> {{ item.prixMax }} €<br>
+        </ng-container>
+        <ng-container *ngIf="item.ramMin !== -1">
+          <strong>RAM min :</strong> {{ item.ramMin }} Go<br>
+        </ng-container>
+        <ng-container *ngIf="item.hddCapaMin !== -1">
+          <strong>HDD min :</strong> {{ item.hddCapaMin }} Go<br>
+        </ng-container>
+        <ng-container *ngIf="item.marqueCPU">
+          <strong>Marque CPU :</strong> {{ item.marqueCPU }}<br>
+        </ng-container>
+        <ng-container *ngIf="item.marqueGPU">
+          <strong>Marque GPU :</strong> {{ item.marqueGPU }}<br>
+        </ng-container>
       </div>
 
-      <button (click)="removeItem(i)">
-        Supprimer
-      </button>
+      <div class="actions">
+        <button (click)="relancerRecherche(item)">Relancer recherches</button>
+        <button (click)="removeItem(i)">
+          Supprimer
+        </button>
+      </div>
 
     </div>
 

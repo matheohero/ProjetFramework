@@ -11,7 +11,6 @@ export class DataBaseService {
 
   lstPc:any;
   lstUser:Array<Profil> = [];
-  histo:Array<Filtre> = [];
 
   constructor() { 
     this.lstPc = pc;
@@ -113,12 +112,20 @@ export class DataBaseService {
 
   addToHisto(filtre:Filtre) {
 
-    if (this.histo.length >= this.HISTO_SAVE_COUNT) {
-      this.histo = this.histo.slice(1);
-    }
-    this.histo.push(filtre);
+    let username = localStorage.getItem("currentUser");
 
-    localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.histo))
+    if (username == undefined) return;
+
+    let user = this.getUser(username);
+
+    if (user == undefined) return;
+
+    if (user.historique.length >= this.HISTO_SAVE_COUNT) {
+      user.historique = user.historique.slice(1);
+    }
+    user.historique.push(filtre);
+
+    localStorage.setItem(this.LOCAL_STORAGE, JSON.stringify(this.lstUser))
   }
 
 }
