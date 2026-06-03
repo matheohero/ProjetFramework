@@ -117,7 +117,20 @@ addToHisto(filtre: Filtre, nbResultats: number) {
   let user = this.getUser(username);
   if (user == undefined) return;
 
-  const dejaPresent = user.historique.some((h: any) => 
+  // Vérifie si au moins un filtre est actif
+  const sansFiltres =
+    filtre.nomPc      === "" &&
+    filtre.type       === "" &&
+    filtre.marqueCPU  === "" &&
+    filtre.marqueGPU  === "" &&
+    filtre.prixMax    === -1 &&
+    filtre.ramMin     === -1 &&
+    filtre.hddCapaMin === -1;
+
+  if (sansFiltres) return;
+
+  // Vérifie les doublons
+  const dejaPresent = user.historique.some((h: any) =>
     h.nomPc      === filtre.nomPc      &&
     h.type       === filtre.type       &&
     h.prixMax    === filtre.prixMax    &&
